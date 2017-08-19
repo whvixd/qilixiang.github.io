@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# Site settings
 title: BY Blog
 SEOTitle: 王志祥的博客 | BY Blog
@@ -8,6 +9,18 @@ keyword: "BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhon
 url: "http://qilixiang1118.top/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/codeFarmer1118/qilixiang.github.io.git" # you code repository
+=======
+# Site settings
+title: BY Blog
+SEOTitle: 王志祥的博客 | BY Blog
+header-img: img/post-bg-desk.jpg
+email: qiubaiying@gmail.com
+description: "Every failure is leading towards success."
+keyword: "BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhone"
+url: "http://qiubaiying.github.io"          # your host, for absolute URL
+baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
+github_repo: "https://github.com/qiubaiying/qiubaiying.github.io.git" # you code repository
+>>>>>>> dff456e843367a07ecf67766af23abeba47b13b6
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
