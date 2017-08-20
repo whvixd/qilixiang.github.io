@@ -12,7 +12,7 @@ github_repo: "https://github.com/codeFarmer1118/qilixiang.github.io.git" # you c
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Life is fine and enjoyable, yet you must learn to enjoy your fine life. "
-sidebar-avatar: img/avatar-by.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: img/avatat-by.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
