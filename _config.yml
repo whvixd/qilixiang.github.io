@@ -12,14 +12,14 @@ github_repo: "https://github.com/codeFarmer1118/qilixiang.github.io.git" # you c
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Life is fine and enjoyable, yet you must learn to enjoy your fine life. "
-sidebar-avatar: img/avatar_m.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: img/avatar-by.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
 weibo_username:     3283052617/profile?topnav=1&wvr=6&is_all=1
-zhihu_username:     qilixiang-41/activities
+zhihu_username:     qilixiang
 github_username:    codeFarmer1118
 # facebook_username:  baiying.qiu.7
 jianshu_username:   users/2bc643a3974e/timeline
