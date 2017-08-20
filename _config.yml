@@ -19,10 +19,10 @@ sidebar-avatar: img/avatar-by.jpg      # use absolute URL, seeing it's used in b
 # SNS settings
 RSS: false
 weibo_username:     3283052617/profile?topnav=1&wvr=6&is_all=1
-zhihu_username:     qilixiang
+zhihu_username:     qilixiang-41/activities
 github_username:    codeFarmer1118
 # facebook_username:  baiying.qiu.7
-jianshu_username:   users/2bc643a3974e/timeline
+jianshu_username:   2bc643a3974e/timeline
 #twitter_username:   qiubaiying
 
 
