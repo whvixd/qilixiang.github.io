@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 ﻿# Site settings
+=======
+# Site settings
+>>>>>>> 6a53ee64fd758c9ea41d6838aee942a03f0dcc17
 title: BY Blog
 SEOTitle: 王志祥的博客 | BY Blog
 header-img: img/post-bg-desk.jpg
 email: 631791301@qq.com
 description: "Every failure is leading towards success."
+<<<<<<< HEAD
 keyword: "BY, BY Blog, 志祥的博客, qilixiang, 王志祥, iOS, Apple, iPhone"
+=======
+keyword: "BY, BY Blog, 志祥的博客, qiubaiying, 王志祥, iOS, Apple, iPhone"
+>>>>>>> 6a53ee64fd758c9ea41d6838aee942a03f0dcc17
 url: "http://qilixiang1118.top/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/codeFarmer1118/qilixiang.github.io.git" # you code repository
