@@ -22,7 +22,7 @@ weibo_username:     3283052617/profile?topnav=1&wvr=6&is_all=1
 zhihu_username:     qilixiang-41/activities
 github_username:    codeFarmer1118
 # facebook_username:  baiying.qiu.7
-jianshu_username:   2bc643a3974e/timeline
+jianshu_username:   2bc643a3974e
 #twitter_username:   qiubaiying
 
 
@@ -56,7 +56,7 @@ kramdown:
 
 # 评论系统
 # Disqus settings（https://disqus.com/）
-disqus_username: qiubaiying
+# disqus_username: qiubaiying
 
 # 多说 将于2017年6月1日正式关停服务，建议使用 Disqus（http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241）
 # Duoshuo settings
