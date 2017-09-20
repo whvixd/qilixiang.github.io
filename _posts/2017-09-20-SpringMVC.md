@@ -25,7 +25,7 @@ Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow�
   如何使用SpringMvc？<br>
 ##### SpringMVC的流程图
 
-![SpringMVC的流程图](../img/clipboard.png)
+![SpringMVC的流程图](/img/clipboard.png)
 
 ##### Spring工作流程描述
 
