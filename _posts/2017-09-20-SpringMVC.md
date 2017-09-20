@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      SpringMVC
-subtitle:   总结SpringMVC
+title:      SpringMVC基础
+subtitle:   初学并整理SpringMVC的一些重要知识点
 date:       2017-09-20
 author:     Static
 header-img: img/post-bg-ios9-web.jpg
@@ -65,10 +65,10 @@ Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow�
 
 ##### DispatcherServlet主要用作职责调度工作，本身主要用于控制流程，主要职责如下：
 
-1.文件上传解析，如果请求类型是multipart将通过MultipartResolver进行文件上传解析；
-2.通过HandlerMapping，将请求映射到处理器（返回一个 HandlerExecutionChain ，它包括一个处理器、多个HandlerInterceptor拦截器）；
-<!--[if !supportLists]-->3、 <!--[endif]-->通过HandlerAdapter支持多种类型的处理器( HandlerExecutionChain中的处理器)；
-4.通过ViewResolver解析逻辑视图名到具体视图实现；
-5.本地化解析；
-6.渲染具体的视图等；
-7.如果执行过程中遇到异常将交给HandlerExceptionResolver来解析。
+1.文件上传解析，如果请求类型是multipart将通过MultipartResolver进行文件上传解析；<br>
+2.通过HandlerMapping，将请求映射到处理器（返回一个 HandlerExecutionChain ，它包括一个处理器、多个HandlerInterceptor拦截器）；<!--[if !supportLists]-->
+3. <!--[endif]-->通过HandlerAdapter支持多种类型的处理器( HandlerExecutionChain中的处理器)；<br>
+4.通过ViewResolver解析逻辑视图名到具体视图实现；<br>
+5.本地化解析；<br>
+6.渲染具体的视图等；<br>
+7.如果执行过程中遇到异常将交给HandlerExceptionResolver来解析。<br>
