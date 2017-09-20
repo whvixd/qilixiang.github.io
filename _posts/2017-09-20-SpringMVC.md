@@ -14,20 +14,20 @@ tags:
 
 #### Why?
 
-  为什么使用SpringMvc？<br>
+ > 为什么使用SpringMvc？<br>
   
 Lifecycle for overriding binding, validation, etc，易于同其它View框架（Tiles等）无缝集成，采用IOC便于测试。
 它是一个典型的教科书式的mvc构架，而不像struts等都是变种或者不是完全基于mvc系统的框架，对于初学者或者想了解mvc的人来说我觉得 spring是最好的，它的实现就是教科书！第二它和tapestry一样是一个纯正的servlet系统，这也是它和tapestry相比 struts所具有的优势。而且框架本身有代码，看起来容易理解。
 
 #### What?
 
-  什么是SpringMvc？<br>
+ > 什么是SpringMvc？<br>
   
 Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的SpringMVC框架或集成其他MVC开发框架，如Struts1，Struts2等。
 
 #### How?
 
-  如何使用SpringMvc？<br>
+ > 如何使用SpringMvc？<br>
   
 ##### SpringMVC的流程图
 
