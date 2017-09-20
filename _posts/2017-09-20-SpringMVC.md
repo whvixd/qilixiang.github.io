@@ -45,11 +45,11 @@ Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow�
 
 ##### 具体的核心开发步骤：
 
-1. DispatcherServlet在web.xml中的部署描述，从而拦截请求到Spring Web MVC
-2. HandlerMapping的配置，从而将请求映射到处理器
-3. HandlerAdapter的配置，从而支持多种类型的处理器
-4. ViewResolver的配置，从而将逻辑视图名解析为具体视图技术
-5.处理器（页面控制器）的配置，从而进行功能处理
+1. DispatcherServlet在web.xml中的部署描述，从而拦截请求到Spring Web MVC;
+2. HandlerMapping的配置，从而将请求映射到处理器;
+3. HandlerAdapter的配置，从而支持多种类型的处理器;
+4. ViewResolver的配置，从而将逻辑视图名解析为具体视图技术;
+5.处理器（页面控制器）的配置，从而进行功能处理。
 
 ##### 通过注解的方式：
 
