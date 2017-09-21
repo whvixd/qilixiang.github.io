@@ -1,11 +1,10 @@
-<<<<<<< HEAD
 # BY Blog
 
 > 下面是博客的搭建教程，这个教程修改自 [Hux](https://github.com/Huxpro/huxpro.github.io) 。
 
-### [我的博客在这里 &rarr;](http://qiubaiying.github.io)
+### [我的博客在这里 &rarr;](http://qilixiang1118.top/)
 
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-home.png)
+![](https://github.com/codeFarmer1118/qilixiang.github.io/blob/master/img/readme-home.png)
 
 
 ## 使用
@@ -82,7 +81,7 @@ tags:
 ### 侧边栏
 
 看右边:
-![](https://raw.githubusercontent.com/qiubaiying/qiubaiying.github.io/master/img/readme-side.png)
+![](https://github.com/codeFarmer1118/qilixiang.github.io/blob/master/img/readme-side.png)
 
 设置是在 `_config.yml`文件里面的`Sidebar settings`那块。
 
@@ -260,6 +259,6 @@ JavaScript 的压缩混淆、Less 的编译、Apache 2.0 许可通告的添加�
 
 
 
-=======
+
 # qilixiang.github.io
->>>>>>> 0d5157d9a7e8d5ac0bd09c13d11d3170b5259e14
+
