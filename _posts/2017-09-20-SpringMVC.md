@@ -53,6 +53,8 @@ Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow�
 
 ##### 通过注解的方式：
 
+![SpringMVC注解](/img/SpringMVC-Annotation.png)
+
 > 需要通过处理器映射DefaultAnnotationHandlerMapping和处理器适配器AnnotationMethodHandlerAdapter来开启支持@Controller 和 @RequestMapping注解的处理器。
 
 @Controller：用于标识是处理器类；<br>
