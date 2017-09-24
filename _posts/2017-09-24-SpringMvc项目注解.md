@@ -25,7 +25,7 @@ Spring 自 2.0  版本开始，陆续引入了一些注解用于简化 Spring �
  <beans … > 
     ……
  <context:component-scan base-package="org.lanqiao.component">
- <!-- component下有dao、service和API -->
+ <!-- component下有dao、service和action -->
 ……
  </beans>
 ```
