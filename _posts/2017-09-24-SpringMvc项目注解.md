@@ -4,13 +4,13 @@ title:      SpringMVC项目中的注解
 subtitle:   初学SpringMVC整理的一些知识点
 date:       2017-09-24
 author:     Static
-header-img: img/post-bg-ios9-web.jpg
+header-img: img/post-bg-20170924.jpg
 catalog: true
 tags:
     - SpringMVC注解
 ---
 
-## 最基本的SpringMvc项目中使用的注解
+## SpringMvc项目中常用的注解
 ### Dao层
 #### @Repository:
 Spring 自 2.0  版本开始，陆续引入了一些注解用于简化 Spring 的开发。@Repository注解便属于最先引入的一批，它用于将数据访问层 (DAO 层 ) 的类标识为 Spring Bean。具体只需将该注解标注在 DAO类上即可,同时，为了让 Spring 能够扫描类路径中的类并识别出 @Repository 注解，需要在 XML 配置文件中启用Bean 的自动扫描功能，这可以通过<context:component-scan/>实现。如下所示：
