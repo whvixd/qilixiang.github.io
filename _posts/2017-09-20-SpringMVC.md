@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      SpringMVC基础
+title:      SpringMVC基础概念
 subtitle:   初学并整理SpringMVC的一些重要知识点
 date:       2017-09-20
 author:     Static
