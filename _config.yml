@@ -1,10 +1,10 @@
 ﻿# Site settings
 title: Static
-SEOTitle: 王志祥的博客 | BY Blog
+SEOTitle: whvixd | blog
 header-img: img/post-bg-maindesk.jpg
 email: whvixd@163.com
 description: "Fighting ! ! ! The young !"
-keyword: "BY, BY Blog, qilixiang, 王志祥, Java , HTML , JavaScript , JSP"
+keyword: "whvixd, Blog, qilixiang, 王志祥, Java , HTML , JavaScript , Python"
 url: "http://qilixiang1118.top/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/codeFarmer1118/qilixiang.github.io.git" # you code repository
@@ -94,16 +94,16 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "WY",
-        href: "http://zhengwuyang.com"
+        title: "mayun",
+        href: "https://weibo.com/mayun?refer_flag=1001030101_&is_hot=1"
     },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
+        title: "mahuateng",
+        href: "http://t.qq.com/pony/"
     },{
-        title: "Apple",
-        href: "https://apple.com"
+        title: "leijun",
+        href: "https://weibo.com/leijun?refer_flag=1001030101_"
     },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "dongge",
+        href: "https://weibo.com/liuqiangdong?refer_flag=1001030101_&is_hot=1"
     }
 ]
