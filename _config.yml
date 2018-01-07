@@ -7,7 +7,7 @@ description: "Fighting ! ! ! The young !"
 keyword: "whvixd, Blog, qilixiang, 王志祥, Java , HTML , JavaScript , Python"
 url: "http://qilixiang1118.top/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/codeFarmer1118/qilixiang.github.io.git" # you code repository
+github_repo: "https://github.com/whvixd/qilixiang.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
@@ -20,7 +20,7 @@ sidebar-avatar: img/avatar-by.jpg      # use absolute URL, seeing it's used in b
 RSS: false
 weibo_username:     3283052617/profile?topnav=1&wvr=6&is_all=1
 zhihu_username:     qilixiang-41/activities
-github_username:    codeFarmer1118
+github_username:    whvixd
 # facebook_username:  baiying.qiu.7
 jianshu_username:   2bc643a3974e
 #twitter_username:   qiubaiying
