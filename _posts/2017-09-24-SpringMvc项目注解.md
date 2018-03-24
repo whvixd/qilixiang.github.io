@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      SpringMVC项目中的注解
-subtitle:   初学SpringMVC整理的一些知识点
+subtitle:   初学SpringMVC时整理的知识点
 date:       2017-09-24
 author:     Static
 header-img: img/post-bg-20170924.jpg
@@ -79,6 +79,7 @@ RequestMapping是一个用来处理请求地址映射的注解，可用于类或
 
 > value：指定请求的实际地址
 
+
 ```
 @Controller
 public class StudentAction {
@@ -116,6 +117,7 @@ URL：http://localhost:8080/springMvcJdbc/students.action
 
 > consumes： 指定处理请求的提交内容类型（Content-Type），例如application/json, text/html;
 
+
 cousumes部分代码:
 ```
 @Controller  
@@ -130,6 +132,7 @@ public void addStudent(@RequestBody Student stu, Model model) {
 
 
 > produces:    指定返回的内容类型，仅当request请求头中的(Accept)类型中包含该指定类型才返回；
+
 
 produces部分代码:
 ```
@@ -163,6 +166,7 @@ produces部分代码:
 
 
 > headers： 指定request中必须包含某些指定的header值，才能让该方法处理请求。
+
 
 ```
 @Controller  
