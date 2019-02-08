@@ -33,3 +33,14 @@ Temporary Items
 
 # debug file
 _site
+
+target/
+.DS_Store
+*.un~
+*.iml
+*/*.iml
+.idea/
+*.swp
+rebel.xml
+logs/
+catalina.home_IS_UNDEFINED/
