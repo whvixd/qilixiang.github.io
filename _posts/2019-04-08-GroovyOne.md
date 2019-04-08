@@ -1,0 +1,182 @@
+---
+layout:     post
+title:      Groovy基础语法
+subtitle:   Groovy grammar
+date:       2019-04-08
+author:     Static
+header-img: img/bg/JavaDynamicProxy.jpg
+catalog: true
+tags:
+    - Groovy 
+---
+
+### 1. Groovy 概述
+
+Groovy是一种基于Java平台的面向对象语言,是Apache 旗下的一种基于JVM的面向对象编程语言，既可以用于面向对象编程，也可以用作纯粹的脚本语言。
+
+### 2. 变量定义
+
+def关键字定义变量，也可以用指定类型，默认访问修饰符是public
+
+
+```
+def defNumber = 10
+int intNumber = 10
+```
+
+### 3. 方法定义
+
+方法可用def定义，入参可以不用指定类型
+
+```
+def test(a,b,c){
+    print a+b+c
+}
+
+int test(int a){
+    return a;
+}
+```
+
+方法有返回值可以用return，也可以省略，默认最后一行为返回结果
+
+```
+int add(a,b){
+    a+b
+}
+```
+
+### 4. 类
+
+与Java类相似，区别:
+1. 默认修饰符为public
+2. 全局参数用public修饰会自动生成setter方法和getter方法
+3. 类名可以不用groovy文件名一致
+ 
+
+### 5. 语法
+
+#### 5.1 for循环
+
+支持Java中的for循环 for(int i=0;i<10;i++) 和 for(int i:array)
+
+```
+for (def i : [1, 2, 3]) {
+    println i
+}
+
+for (def i : 1..3) {
+    println i
+}
+```
+
+#### 5.2 switch
+
+Groovy不仅支持字符串和枚举，也支持数组,对象
+
+```
+    def switchMethod(x){
+        switch (x){
+            case 'string':
+                return 'string'
+            case [1,3]:
+                return 'array'
+            case 1..3:
+                return 'range'
+            case String:
+                return 'String.class'
+            default:
+                return 'default'
+        }
+    }
+```
+switchMethod(1) 返回 array
+
+#### 5.2 数字
+
+#### 5.3 字符串
+单引号字符串和双引号字符串都可以定义一个字符串常量，区别是双引号支持插值
+
+```
+        def str = 'share'
+        println '${str}' //${str}
+        println "${str}" //share
+        println "$str" //share
+```
+
+三引号字符串可以保留文本的换行和缩进格式，不支持插值。
+
+```
+        def str= '''
+test
+    string
+'''
+```
+#### 5.4 数组
+
+[] 表示数组，元素可以是同一类型，也可以是不同类型
+
+```
+def array = [1, 'a', [2.2, 'bc']]
+```
+
+获取元素
+
+
+```
+array[2][1] //'bc'
+```
+
+#### 5.5 映射
+
+[:] 表示映射
+
+
+```
+def map = ['k': 'v', 1: 'b', 'array': [1, 2]]
+```
+
+获取值
+
+
+```
+map['array'] //[1, 2]
+```
+
+#### 5.6 闭包
+
+语法与Java Lambda表达式类似
+
+1. 
+```
+def closureString = 'closure'
+def closure = {
+    closureString // closure()的返回值为'closure'
+}
+
+```
+
+2. 
+```
+def closure = { x ->
+    if ('x' == x) {
+        x = '=='
+    } else {
+        x = '!='
+    }
+    x
+}
+
+one.closure('x') // 返回值 '=='
+```
+
+3. 
+```
+def closureMethod(array, print) {
+    for (def x : array) {
+        print(x)
+    }
+}
+
+one.closureMethod([1..3]) { x -> println x } // [1, 2, 3]
+```
