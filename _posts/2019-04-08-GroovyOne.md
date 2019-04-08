@@ -94,14 +94,22 @@ switchMethod(1) 返回 array
 
 #### 5.2 数字
 
+```
+    def number = 8888888888 //def 会根据字面值自动调整类型
+    def number_int = 8I //Integer
+    def number_float = 8.8F //Float
+    def number_double = 8.88D //Double
+    def number_big_decimal = 88.88G //BigDecimal
+```
+
 #### 5.3 字符串
 单引号字符串和双引号字符串都可以定义一个字符串常量，区别是双引号支持插值
 
 ```
-        def str = 'share'
-        println '${str}' //${str}
-        println "${str}" //share
-        println "$str" //share
+    def str = 'share'
+    println '${str}' //${str}
+    println "${str}" //share
+    println "$str" //share
 ```
 
 三引号字符串可以保留文本的换行和缩进格式，不支持插值。
@@ -117,14 +125,14 @@ test
 [] 表示数组，元素可以是同一类型，也可以是不同类型
 
 ```
-def array = [1, 'a', [2.2, 'bc']]
+    def array = [1, 'a', [2.2, 'bc']]
 ```
 
 获取元素
 
 
 ```
-array[2][1] //'bc'
+    array[2][1] //'bc'
 ```
 
 #### 5.5 映射
@@ -133,14 +141,14 @@ array[2][1] //'bc'
 
 
 ```
-def map = ['k': 'v', 1: 'b', 'array': [1, 2]]
+    def map = ['k': 'v', 1: 'b', 'array': [1, 2]]
 ```
 
 获取值
 
 
 ```
-map['array'] //[1, 2]
+    map['array'] //[1, 2]
 ```
 
 #### 5.6 闭包
@@ -148,15 +156,17 @@ map['array'] //[1, 2]
 语法与Java Lambda表达式类似
 
 1. 
+
 ```
-def closureString = 'closure'
-def closure = {
+    def closureString = 'closure'
+    def closure = {
     closureString // closure()的返回值为'closure'
 }
 
 ```
 
 2. 
+
 ```
 def closure = { x ->
     if ('x' == x) {
@@ -171,6 +181,7 @@ one.closure('x') // 返回值 '=='
 ```
 
 3. 
+
 ```
 def closureMethod(array, print) {
     for (def x : array) {
