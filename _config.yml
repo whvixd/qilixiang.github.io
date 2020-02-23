@@ -12,7 +12,7 @@ github_repo: "https://github.com/whvixd/qilixiang.github.io.git" # you code repo
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "You have to let us struggle for ourselves, even if we must die in the process. "
-sidebar-avatar: img/avatar-by.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar-by.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
