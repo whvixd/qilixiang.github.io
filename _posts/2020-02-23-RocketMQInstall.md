@@ -15,10 +15,8 @@ tags:
 
 #### CentOS6 上安装RocketMQ
 
-> CentOS上安装 java git mvn 可参考 [https://www.cnblogs.com/fly-piglet/p/7594488.html](https://www.cnblogs.com/fly-piglet/p/7594488.html)
----
 
-#### 安装RocketMQ
+> CentOS上安装 java git mvn 可参考 [https://www.cnblogs.com/fly-piglet/p/7594488.html](https://www.cnblogs.com/fly-piglet/p/7594488.html)
 
 ##### 1. 克隆RocketMQ项目代码
 
@@ -35,8 +33,7 @@ cd distribution/target/rocketmq-4.6.1/rocketmq-4.6.1/bin/ #进行bin文件
 ```
 nohup sh mqnamesrv & #启动mqnamesrv
 ```
-> 可能会启动失败，打开nohub.log日志,提示内存不够
-> Native memory allocation (mmap) failed to map 2147483648 bytes for committing reserved memory.
+> 可能会启动失败，打开nohub.log日志，提示内存不够，Native memory allocation (mmap) failed to map 2147483648 bytes for committing reserved memory.
 
 ```
 vi runserver.sh #修改JVN堆栈大小，-server -Xms4g -Xmx4g -Xmn2g 改为 -server -Xms400m -Xmx400m -Xmn200m
@@ -63,13 +60,13 @@ vi mq_broker_start.sh #创建broker启动文件
 ```
 > 目录根据自己机器修改
 
-###### mq_broker_start.sh：
+**mq_broker_start.sh：**
 ```
 #!/bin/bash
 sh /home/xxx/software/middleware/mq/rocketmq/distribution/target/rocketmq-4.6.1/rocketmq-4.6.1/bin/mqbroker -n localhost:9876 autoCreateTopicEnable=true
 ```
 
-###### mq_start.sh：
+**mq_start.sh：**
 
 ```
 #!/bin/bash
@@ -85,7 +82,7 @@ vi /etc/rc.d/rc.local #编辑 启动文件
 
 ```
 
-###### rc.local：
+**rc.local：**
 ```
 #!/bin/sh
 #
