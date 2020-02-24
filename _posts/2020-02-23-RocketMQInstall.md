@@ -57,6 +57,7 @@ sh mqshutdown namesrv #关闭namesrv
 ```
 vi mq_start.sh #创建mq启动文件
 vi mq_broker_start.sh #创建broker启动文件
+chmod +x mq_start.sh,mq_broker_start.sh #给用户授权
 ```
 > 目录根据自己机器修改
 
