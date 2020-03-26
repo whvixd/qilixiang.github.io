@@ -1,1 +1,1 @@
-### Blog... 》》》》》》》》》Welcome [http://whvixd.com/](http://whvixd.com/)
+### Blog >>>>>>>>>> Welcome to link [http://whvixd.com/](http://whvixd.com/)
