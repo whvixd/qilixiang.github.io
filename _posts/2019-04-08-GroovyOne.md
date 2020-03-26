@@ -4,7 +4,7 @@ title:      Groovy基础语法
 subtitle:   Groovy grammar
 date:       2019-04-08
 author:     Static
-header-img: img/bg/JavaDynamicProxy.jpg
+header-img: img/bg/black.jpg
 catalog: true
 tags:
     - Groovy 

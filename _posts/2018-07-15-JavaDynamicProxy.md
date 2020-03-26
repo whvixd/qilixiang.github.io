@@ -4,7 +4,7 @@ title:      Java动态代理
 subtitle:   DynamicProxy
 date:       2018-07-15
 author:     Static
-header-img: img/bg/JavaDynamicProxy.jpg
+header-img: img/bg/black.jpg
 catalog: true
 tags:
     - Java DynamicProxy 
