@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      发送邮件
-subtitle:   SendEmailUtil
+subtitle:   Send email util
 date:       2018-06-12
 author:     Static
 header-img: img/bg/sendEmail.jpg
@@ -83,6 +83,7 @@ public class SendEmail {
 
     }
 
+    //构造者模式，封装发送邮件工具类
     enum SimpleEmailSingleton {
         INSTANCE;
 

@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Java动态代理
+title:      动态代理
 subtitle:   DynamicProxy
 date:       2018-07-15
 author:     Static
@@ -28,7 +28,7 @@ tags:
 
 #### 3. Cglib通过修改字节码的方式实现动态代理
 
-> 三种方式的Demo代码如下：
+> 三种方式代码如下：
 
 ```
 import com.google.common.reflect.Reflection;
@@ -149,4 +149,4 @@ public interface DynamicProxy {
 
 ```
 
-> 现在很多的框架都用到了动态代理，比如Spring的AOP等等，需学习的地方还有很多很多
+> 现在很多的框架都用到了动态代理，比如Spring AOP的实现，底层就是判断若是接口则用Java动态代理，若是类则用Cglib动态代理
