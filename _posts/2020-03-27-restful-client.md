@@ -30,7 +30,7 @@ Client：RPC协议的调用方，对远程服务进行通讯的调用方。
 ### 进入正题
 > 利用spring FactoryBean、动态代理和okhttp实现http client
 
-源码地址:[https://github.com/whvixd/restful-client](https://github.com/whvixd/restful-client)
+项目源码:[https://github.com/whvixd/restful-client](https://github.com/whvixd/restful-client)
 
 
 #### 如何使用？
@@ -85,7 +85,7 @@ Client：RPC协议的调用方，对远程服务进行通讯的调用方。
 
 #### 3. 具体代码
 
-- RequestProxyFactoryBean 继承 Spring FactoryBean，对调用方的接口或类进行代理
+- **RequestProxyFactoryBean** 继承 Spring FactoryBean，对调用方的接口或类进行代理
 
 ```java
 @Data
@@ -110,7 +110,7 @@ public class RequestProxyFactoryBean<T> implements FactoryBean<T> {
 }
 ```
 
-- RequestProxy 根据调用方的类型进行判断，若是接口则用Java带态代理，若是类则用Cglib动态代理；解析接口入参为RequestParam，RequestParam.getRequestParam(method, args)
+- **RequestProxy** 根据调用方的类型进行判断，若是接口则用Java带态代理，若是类则用Cglib动态代理；解析接口入参为RequestParam，RequestParam.getRequestParam(method, args)
 
 ```java
 @Slf4j
@@ -151,7 +151,7 @@ public enum RequestProxy {
 }
 ```
 
-- RequestHandler，编码、解码处理器，支持自定义化，若未实现，则使用默认处理器DefaultCoderHandler；根据http method调用OkHttp
+- **RequestHandler**，编码、解码处理器，支持自定义化，若未实现，则使用默认处理器DefaultCoderHandler；根据http method调用OkHttp
 
 ```java
 @Slf4j
@@ -199,7 +199,7 @@ public class RequestHandler<T> {
 }
 ```
 
-- RequestInvokeTest Spock单元测试
+- **RequestInvokeTest** Spock单元测试
 
 ```groovy
 class RequestInvokeTest extends Configuration {
@@ -261,8 +261,8 @@ class Configuration extends BaseTest{
 
 ---
 
-> **源码地址:[https://github.com/whvixd/restful-client](https://github.com/whvixd/restful-client)**
+> **项目源码:[https://github.com/whvixd/restful-client](https://github.com/whvixd/restful-client)**
 
-> Spock单元测试可参考[http://whvixd.com/2020/03/26/spock/](http://whvixd.com/2020/03/26/spock/)
+> Spock单元测试可参考 [http://whvixd.com/2020/03/26/spock/](http://whvixd.com/2020/03/26/spock/)
 
-> Spark可参考[http://sparkjava.com/](http://sparkjava.com/)
+> Spark可参考 [http://sparkjava.com/](http://sparkjava.com/)
