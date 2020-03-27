@@ -2,7 +2,7 @@
 layout:     post
 title:      restful client
 subtitle:   rpc
-date:       2020-03-26
+date:       2020-03-27
 author:     Static
 header-img: img/bg/black.jpg
 catalog: true
@@ -34,7 +34,8 @@ Client：RPC协议的调用方，对远程服务进行通讯的调用方。
 
 
 #### 如何使用？
-1. 添加Maven依赖
+
+##### 1. 添加Maven依赖
 
 ```
 <groupId>com.github.whvixd</groupId>
@@ -42,7 +43,7 @@ Client：RPC协议的调用方，对远程服务进行通讯的调用方。
 <version>1.0-SNAPSHOT</version>
 ```
 
-2. 添加spring bean配置:
+##### 2. 添加spring bean配置:
 
 > restful-client.xml
 
@@ -51,7 +52,7 @@ Client：RPC协议的调用方，对远程服务进行通讯的调用方。
               p:clientType="com.github.restful.client.core.RequestInvokeTest"/>
 ```
 
-3. 添加http client 接口，包含接口的请求头、请求体和响应体等，如下:
+##### 3. 添加http client 接口，包含接口的请求头、请求体和响应体等，如下:
 
 ```
     @RequestMapping(path = "127.0.0.1:8080", coder = HelloCoderHandler.class)
@@ -69,7 +70,10 @@ Client：RPC协议的调用方，对远程服务进行通讯的调用方。
 
 #### 如何实现？
 
-**流程图:**
+##### **流程图:**
 
-![流程图](/img/rpc/restful-client.jpg)
+<html>
+    <img src="/img/rpc/restful-client.jpg" width="300" height="600" /> 
+</html>
+
 
