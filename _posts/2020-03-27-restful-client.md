@@ -73,7 +73,7 @@ Client：RPC协议的调用方，对远程服务进行通讯的调用方。
 ##### **流程图:**
 
 <html>
-    <img src="/img/rpc/restful-client.jpg" width="300" height="600" /> 
+    <img src="/img/rpc/restful-client.jpg" width="500" height="800" /> 
 </html>
 
 
