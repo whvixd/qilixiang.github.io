@@ -24,7 +24,7 @@ tags:
 
 ##### 2. 修改generator.xml中的代码
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>  
     <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">  
     <generatorConfiguration>  
@@ -65,7 +65,7 @@ tags:
 
 ##### 3.打开cmd，进入mybatis-generator-core-1.3.5.jar所在的目录，输入
 
-```
+```shell
 java -jar mybatis-generator-core-1.3.5.jar -configfile generator.xml -overwrite
 ```
 
@@ -104,7 +104,7 @@ java -jar mybatis-generator-core-1.3.5.jar -configfile generator.xml -overwrite
 
 ##### 3. 代码生成的配置文件generatorConfig.xml,根据项目来修改配置文件。
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
@@ -213,7 +213,7 @@ cmd提示：
 
 ##### 1. 首先来看看pom.xml所需依赖的jar包
 
-```
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -377,7 +377,7 @@ jdbc.password=123456
 > generatorConfig.xml
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE generatorConfiguration PUBLIC
     "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
     "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"> <!-- 配置生成器 -->
@@ -441,7 +441,7 @@ jdbc.password=123456
 > service.ftl
 
 
-```
+```ftl
 package ${basePackage}.service;
 
 import com.github.pagehelper.ISelect;
@@ -549,7 +549,7 @@ public class ${modelNameUpperCamel}Service{
 > controller-restful.ftl
 
 
-```
+```java
 package ${basePackage}.api;
 
 import ${basePackage}.entity.${modelNameUpperCamel};
@@ -559,9 +559,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-/**
-* Created by ${author} on ${date}.
-*/
 @RestController
 @RequestMapping("${baseRequestMapping}")
 public class ${modelNameUpperCamel}API {
@@ -608,7 +605,7 @@ public class ${modelNameUpperCamel}API {
 
 ##### 4. 创建CodeGenerator类
 
-```
+```java
 package top.qilixiang;
 
 import freemarker.template.TemplateExceptionHandler;
