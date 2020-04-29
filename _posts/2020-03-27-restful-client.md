@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      restful client
+title:      restful-client
 subtitle:   rpc
 date:       2020-03-27
 author:     Static
@@ -47,14 +47,14 @@ Client：RPC协议的调用方，对远程服务进行通讯的调用方。
 
 > restful-client.xml
 
-```
+```xml
     <bean id="requestInvokeTest" class="com.github.restful.client.core.spring.RequestProxyFactoryBean"
               p:clientType="com.github.restful.client.core.RequestInvokeTest"/>
 ```
 
 ##### 3. 添加http client 接口，包含接口的请求头、请求体和响应体等，如下:
 
-```
+```groovy
     @RequestMapping(path = "127.0.0.1:8080", coder = HelloCoderHandler.class)
     interface HelloClient {
         @RequestGet(path = "/hello/get")
