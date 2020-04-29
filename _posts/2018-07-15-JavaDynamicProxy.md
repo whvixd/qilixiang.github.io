@@ -30,7 +30,7 @@ tags:
 
 > 三种方式代码如下：
 
-```
+```java
 import com.google.common.reflect.Reflection;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;

@@ -28,7 +28,7 @@ tags:
 
 - **创建Course类**
 
-```
+```java
 package com.github.whvixd.demo;
 
 import lombok.AllArgsConstructor;
@@ -50,7 +50,7 @@ public interface Entity {
 
 - **在项目的META-INF目录下添加course.xsd**
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
         targetNamespace="http://www.qilixiang1118.top/schema/course"
@@ -73,7 +73,7 @@ public interface Entity {
 
 > CourseBeanDefinitionParser.java
 
-```
+```java
 package com.github.whvixd.demo.springDemo;
 
 import com.github.whvixd.demo.Entity;
@@ -112,7 +112,7 @@ public class CourseBeanDefinitionParser extends AbstractSingleBeanDefinitionPars
 
 > NamespaceHandler.java
 
-```
+```java
 package com.github.whvixd.demo.springDemo;
 
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
@@ -145,7 +145,7 @@ http\://www.qilixiang1118.top/schema/course.xsd=META-INF/course.xsd
 
 - **创建customBean.xml**
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -164,7 +164,7 @@ http\://www.qilixiang1118.top/schema/course.xsd=META-INF/course.xsd
 
 > SpringDemo.java
 
-```
+```java
 package com.github.whvixd.testSpring;
 
 import com.github.whvixd.demo.Entity;

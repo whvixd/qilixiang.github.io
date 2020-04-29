@@ -30,7 +30,7 @@ tags:
 
 #### 2. 添加发送邮件的工具类，简单的封装了下
 
-```
+```java
 package com.github.whvixd.util;
 
 import lombok.Getter;
@@ -166,7 +166,7 @@ public class SendEmail {
 
 #### 3. 测试发送邮箱
 
-```
+```java
 package com.github.whvixd;
 
 import com.github.whvixd.util.SendEmail;
@@ -193,7 +193,7 @@ public class Test {
 
 #### 4. 使用IChangeListener设置发送邮件服务器
 
-```
+```java
 package com.github.whvixd;
 
 import com.github.whvixd.util.SendEmail;
