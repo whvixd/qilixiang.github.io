@@ -26,9 +26,9 @@ tags:
 
 **@Subscribe**:标识订阅者
 
-**@Prior**:在同一类型阅读者中(方法的入参)的vip
+**@Prior**:在同一类型订阅者中(相同的方法入参类型)的vip
 
-**SubscriberMessage**:阅读者信息
+**SubscriberMessage**:订阅者信息
 
 **Report**:具体推送的消息
 
@@ -103,7 +103,7 @@ public @interface Subscribe {
 }
 ```
 
-- **Agent**:
+- **Agent(重点)**:
 
 ```java
 /**
