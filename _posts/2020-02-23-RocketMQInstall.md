@@ -20,7 +20,7 @@ tags:
 
 ##### 1. 克隆RocketMQ项目代码
 
-```
+```shell
 git clone https://github.com/apache/rocketmq.git #克隆项目
 cd rocketmq #进入项目
 git branch -r #查看线上分支
@@ -30,31 +30,33 @@ cd distribution/target/rocketmq-4.6.1/rocketmq-4.6.1/bin/ #进行bin文件
 ```
 
 ##### 2. 启动namesrv、broker
-```
+
+```shell
 nohup sh mqnamesrv & #启动mqnamesrv
 ```
 > 可能会启动失败，打开nohub.log日志，提示内存不够，Native memory allocation (mmap) failed to map 2147483648 bytes for committing reserved memory.
 
-```
+```shell
 vi runserver.sh #修改JVN堆栈大小，-server -Xms4g -Xmx4g -Xmn2g 改为 -server -Xms400m -Xmx400m -Xmn200m
 vi runbroker.sh #类似，可根据自己机器大小配置
 ```
 
-```
+```shell
 nohup sh mqnamesrv & #启动mqnamesrv
 nohup sh mqbroker -n localhost:9876 autoCreateTopicEnable=true & #启动broker，autoCreateTopicEnable=true 可自定义topic
 ps -ef | grep java #检查 namesrv、broker进程是否启动成功
 ```
 
 ##### 3.关闭namesrv、broker
-```
+
+```shell
 sh mqshutdown broker #关闭broker
 sh mqshutdown namesrv #关闭namesrv
 ```
 
 ##### 4. 配置开机自启动namesrv、broker
 
-```
+```shell
 vi mq_start.sh #创建mq启动文件
 vi mq_broker_start.sh #创建broker启动文件
 chmod +x mq_start.sh,mq_broker_start.sh #给用户授权
@@ -62,14 +64,15 @@ chmod +x mq_start.sh,mq_broker_start.sh #给用户授权
 > 目录根据自己机器修改
 
 **mq_broker_start.sh：**
-```
+
+```shell
 #!/bin/bash
 sh /home/xxx/software/middleware/mq/rocketmq/distribution/target/rocketmq-4.6.1/rocketmq-4.6.1/bin/mqbroker -n localhost:9876 autoCreateTopicEnable=true
 ```
 
 **mq_start.sh：**
 
-```
+```shell
 #!/bin/bash
 export JAVA_HOME=/home/xxx/software/Language/Java/jdk1.8.0_181 #配置JAVA_HOME环境变量
 nohup sh /home/xxx/software/middleware/mq/rocketmq/distribution/target/rocketmq-4.6.1/rocketmq-4.6.1/bin/mqnamesrv 1>/home/xxx/logs/rocketmqlogs/mqnamesrv_`date +%Y``date +%m``date +%d`.log & # 启动namesrv，并日志输出
@@ -84,7 +87,7 @@ vi /etc/rc.d/rc.local #编辑 启动文件
 ```
 
 **rc.local：**
-```
+```shell
 #!/bin/sh
 #
 # This script will be executed *after* all the other init scripts.
@@ -96,7 +99,7 @@ sh /home/xxx/shell/mq_start.sh # 启动mq命令
 ```
 
 ##### 5. 测试
-```
+```java
 // 发送
 public class Producer {
 
