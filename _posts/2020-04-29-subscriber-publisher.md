@@ -13,7 +13,9 @@ tags:
 
 > 参考 [apache eventbus](https://camel.apache.org/components/latest/guava-eventbus-component.html)，实现**订阅者-发布者模式**
 
-### what
+---
+
+### what?
 
 #### 1. 简介
 发布者-订阅者实现了观察者模式，消息通知负责人通过中间商去注册/注销观察者，最后由消息通知负责人给观察者发布消息。
@@ -30,19 +32,23 @@ tags:
 
 **Report**:具体推送的消息
 
-### why
+---
+
+### why?
 
 #### 优点:
 1. 解耦了事件的发布者和订阅者，专人做专事
 2. 简化了代码，业务逻辑更清晰
 3. 可定制化属性，比如线程，异步化，同步化
 
-### how
+---
+
+### how?
 
 #### 1. 流程图:
 
 <html>
-    <img src="/img/SubscriberPublisher/subscriber-publisher.jpg" width="400" height="400" /> 
+    <img src="/img/SubscriberPublisher/subscriber-publisher.jpg" width="700" height="650" /> 
 </html>
 
 #### 2. 使用:
@@ -71,7 +77,7 @@ syncAgent.push(new Report("I come!"));// 发送消息
 
 #### 3. 具体代码实现:
 
-**注解**:
+- **注解**:
 
 ```java
 /**
@@ -97,7 +103,7 @@ public @interface Subscribe {
 }
 ```
 
-**Agent**:
+- **Agent**:
 
 ```java
 /**
@@ -291,7 +297,7 @@ public class Agent {
 }
 ```
 
-**Report**:
+- **Report**:
 
 ```java
 /**
@@ -312,7 +318,7 @@ public class Report {
 }
 ```
 
-**SubscriberMessage**:
+- **SubscriberMessage**:
 
 ```java
 /**
