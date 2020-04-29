@@ -78,6 +78,7 @@ syncAgent.push(new Report("I come!"));// 发送消息
 #### 3. 具体代码实现:
 
 - **注解**:
+
 ```java
 /**
  * Created by wangzhx on 2019/7/14.
@@ -103,6 +104,7 @@ public @interface Subscribe {
 ```
 
 - **Agent**:
+
 ```java
 /**
  * Created by wangzhx on 2019/7/10.
@@ -296,6 +298,7 @@ public class Agent {
 ```
 
 - **Report**:
+
 ```java
 /**
  * Created by wangzhx on 2019/7/10.
@@ -316,6 +319,7 @@ public class Report {
 ```
 
 - **SubscriberMessage**:
+
 ```java
 /**
  * 订阅者信息，维度到方法
