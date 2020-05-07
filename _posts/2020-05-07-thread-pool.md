@@ -40,7 +40,7 @@ tags:
 
 ## How?
 
-1. Executors创建线程池
+#### 1. Executors创建线程池
 
 方法 | 说明
 ---|---
@@ -49,3 +49,55 @@ newCachedThreadPool()|创建线程数不受上限的线程池，任何提交的�
 newSingleThreadExecutor()|创建一个线程的线程池
 newScheduledThreadPool(int corePoolSize)|创建核心线程数为corePoolSize，可执行定时任务的线程池
 newSingleThreadScheduledExecutor()|创建一个线程的定时线程池
+
+> 不推荐，阿里巴巴开发手册:【强制】线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样
+的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。
+
+**newFixedThreadPool()源码如下**
+
+```java
+    public static ExecutorService newFixedThreadPool(int nThreads, ThreadFactory threadFactory) {
+        return new ThreadPoolExecutor(nThreads, nThreads,
+                                      0L, TimeUnit.MILLISECONDS,
+                                      new LinkedBlockingQueue<Runnable>(),
+                                      threadFactory);
+    }
+```
+> 没有指定等待任务队列长度，可能会堆积大量的请求，从而导致 OOM。
+
+**newCachedThreadPool()源码如下**
+
+```java
+public static ExecutorService newCachedThreadPool() {
+        return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                                      60L, TimeUnit.SECONDS,
+                                      new SynchronousQueue<Runnable>());
+    }
+```
+> 最大线程数为Integer.MAX_VALUE，可能会堆积大量的请求，从而导致 OOM
+
+#### 2. ThreadPoolExecutor核心参数详解
+1. **corePoolSize**:创建真正的线程数，执行任务和等待队列中的任务，当线程数小于该值时，优先执行新建的任务
+2. **maximumPoolSize**:线程池中运行的最大线程池
+3. **keepAliveTime**:当线程数大于核心线程数时，多余线程等待新任务的最长时间，若超时，则线程退出
+4. **unit**:队列任务等待时间的单位
+5. **workQueue**:当线程数大于核心线程数时，用来缓存未执行的任务，队列会一直持有任务直到有线程开始执行它
+6. **threadFactory**:通过工厂创建自定义名字的线程
+7. **handler**:当线程数大于最大线程数且队列已满时，采取拒绝策略处理新任务
+
+**常用堵塞队列**
+
+堵塞队列 | 说明
+---|---
+ArrayBlockingQueue|基于数组结构的堵塞队列，可自定义队列长度
+LinkedBlockingQueue|基于链表的堵塞队列，可自定义队列长度
+SynchronousQueue|同步队列，该队列不存储元素，每个插入操作必须等待另一个线程调用移除操作，否则插入操作会一直被阻塞
+
+**ThreadPoolExecutor提供四种拒绝策略**
+
+拒绝策略 | 说明
+---|---
+AbortPolicy|直接丢弃新任务，并抛出 RejectedExecutionException，线程池默认策略
+DiscardPolicy|无任何处理，直接丢弃新任务
+DiscardOldestPolicy|丢弃队首任务，并执行新任务
+CallerRunsPolicy|若线程没有退出时，由当前线程执行新任务
