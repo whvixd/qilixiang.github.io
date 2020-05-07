@@ -53,7 +53,7 @@ newSingleThreadScheduledExecutor()|创建一个线程的定时线程池
 > 不推荐，阿里巴巴开发手册:【强制】线程池不允许使用 Executors 去创建，而是通过 ThreadPoolExecutor 的方式，这样
 的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。
 
-**newFixedThreadPool()源码如下**
+· **newFixedThreadPool()源码如下**
 
 ```java
     public static ExecutorService newFixedThreadPool(int nThreads, ThreadFactory threadFactory) {
@@ -65,7 +65,7 @@ newSingleThreadScheduledExecutor()|创建一个线程的定时线程池
 ```
 > 没有指定等待任务队列长度，可能会堆积大量的请求，从而导致 OOM。
 
-**newCachedThreadPool()源码如下**
+· **newCachedThreadPool()源码如下**
 
 ```java
 public static ExecutorService newCachedThreadPool() {
@@ -85,7 +85,7 @@ public static ExecutorService newCachedThreadPool() {
 6. **threadFactory**:通过工厂创建自定义名字的线程
 7. **handler**:当线程数大于最大线程数且队列已满时，采取拒绝策略处理新任务
 
-**常用堵塞队列**
+· **常用堵塞队列**
 
 堵塞队列 | 说明
 ---|---
@@ -93,7 +93,7 @@ ArrayBlockingQueue|基于数组结构的堵塞队列，可自定义队列长度
 LinkedBlockingQueue|基于链表的堵塞队列，可自定义队列长度
 SynchronousQueue|同步队列，该队列不存储元素，每个插入操作必须等待另一个线程调用移除操作，否则插入操作会一直被阻塞
 
-**ThreadPoolExecutor提供四种拒绝策略**
+· **ThreadPoolExecutor提供四种拒绝策略**
 
 拒绝策略 | 说明
 ---|---
