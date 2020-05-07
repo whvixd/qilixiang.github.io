@@ -4,7 +4,7 @@ title:      SpringMVC项目中的注解
 subtitle:   初学SpringMVC时整理的知识点
 date:       2017-09-24
 author:     Static
-header-img: img/post-bg-20170924.jpg
+header-img: img/bg/black.jpg
 catalog: true
 tags:
     - SpringMVC注解

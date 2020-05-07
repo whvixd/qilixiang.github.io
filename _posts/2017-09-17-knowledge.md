@@ -4,7 +4,7 @@ title:      Java知识点总结
 subtitle:   学习Java时的个人笔记
 date:       2017-09-17
 author:     Static
-header-img: img/post-bg-java.jpg
+header-img: img/bg/black.jpg
 catalog: true
 tags:
     - Java笔记

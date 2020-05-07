@@ -4,7 +4,7 @@ title:      SpringMVC基础概念
 subtitle:   整理初学SpringMVC时的一些重要知识点
 date:       2017-09-20
 author:     Static
-header-img: img/post-bg-20170920.jpg
+header-img: img/bg/black.jpg
 catalog: true
 tags:
     - SpringMVC

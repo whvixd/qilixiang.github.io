@@ -4,7 +4,7 @@ title:      发送邮件
 subtitle:   Send email util
 date:       2018-06-12
 author:     Static
-header-img: img/bg/sendEmail.jpg
+header-img: img/bg/black.jpg
 catalog: true
 tags:
     - send email
