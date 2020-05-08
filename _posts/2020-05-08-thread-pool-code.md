@@ -15,7 +15,7 @@ tags:
 
 ```java
 ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 10, 60,TimeUnit.SECONDS, new LinkedBlockingDeque<>(50), new ThreadPoolExecutor.CallerRunsPolicy());
-executor.prestartAllCoreThreads();//启动所有核心线程
+executor.prestartAllCoreThreads();//启动所有核心线程,即创建空任务,激活线程并自旋
 Runnable runnable = () -> {
     //do something
     System.out.println("run");
@@ -38,7 +38,7 @@ if (!executor.isShutdown()) {
 
 ## 3. 源码分析
 
-**1. [线程池的构造器参数介绍](http://whvixd.com/2020/05/07/thread-pool/)**
+**1. [线程池构造器参数介绍](http://whvixd.com/2020/05/07/thread-pool/)**
 
 **2. 提交任务方法**
 
@@ -252,8 +252,7 @@ private Runnable getTask() {
             }
 
             try {
-                // 如果超时，poll时没有任务，则一直堵塞，若未超时则直接获取队头任务
-                // 否则一直阻塞下去
+                // 如果超时，且队列中没有任务，则一直堵塞，若未超时则直接获取队头任务
                 Runnable r = timed ?
                     workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS) :
                     workQueue.take();
@@ -267,7 +266,8 @@ private Runnable getTask() {
     }
 ```
 
-**总结**
-执行任务过程:ThreadPoolExecutor$execute -> ThreadPoolExecutor$addWorker -> Thead$start -> Worker$run() -> Worker$runWorker -> ThreadPoolExecutor$getTask
+## 4. **总结**
 
-getTask自旋尝试获取任务并返回，若队列中没有任务则堵塞当前线程，runWorker自旋执行任务
+**线程池执行任务过程**:ThreadPoolExecutor$**execute** -> ThreadPoolExecutor$**addWorker** -> Thead$**start** -> Worker$**run** -> Worker$**runWorker** -> ThreadPoolExecutor$**getTask**
+
+**getTask**自旋尝试获取任务并返回，若队列中没有任务则堵塞当前线程；**runWorker**自旋执行getTask返回的任务
