@@ -24,21 +24,21 @@ tags:
 ---
 
 ## 2. 技术点
-1. 框架SpringBoot
-2. 代码管理:git
-3. 项目结构管理:maven
-4. 限流:guava的RateLimiter工具，@see 4.2
-5. 缓存:guavaCache，@see 4.3
-6. 消息队列:jdk自带的LinkedBlockingQueue，@see 4.4
-7. 数据库:h2，@see 4.5
-8. 压力测试:jmeter @see 4.6
+1. 框架:**SpringBoot**
+2. 代码管理:**git**
+3. 项目结构管理:**maven**
+4. 限流:guava的**RateLimiter**工具，@see 4.2
+5. 缓存:**guavaCache**，@see 4.3
+6. 消息队列:jdk自带的**LinkedBlockingQueue**，@see 4.4
+7. 数据库:**h2**，@see 4.5
+8. 压力测试:**jmeter** @see 4.6
 
 ---
 
 ## 3. 项目结构
 
 <html>
-    <img src="/img/panic-buying/catalog.jpg" width="600" height="600" /> 
+    <img src="/img/panic-buying/catalog.jpg" width="400" height="400" /> 
 </html>
 
 ---
@@ -154,7 +154,7 @@ public class SaleOrderInterfaceAspect {
 
 #### 4.4 消息队列
 
-**提供者**
+- **提供者**
 
 ```java
 @Component
@@ -176,7 +176,7 @@ public class SaleOrderProducer {
 }
 ```
 
-**消费者**
+- **消费者**
 
 ```java
 @Component
@@ -310,7 +310,7 @@ public class SaleOrderControllerTest extends BaseTest {
     }
 }
 ```
-**jmeter 请求接口**
+- **jmeter 请求接口**
 <html>
     <img src="/img/panic-buying/jmeter.jpg" width="600" height="600" /> 
 </html>
