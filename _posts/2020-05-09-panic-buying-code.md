@@ -41,6 +41,18 @@ tags:
     <img src="/img/panic-buying/catalog.jpg" width="400" height="400" /> 
 </html>
 
+#### 3.1 panic-buying-biz
+接口层，aop实现，接口实现，模型
+
+#### 3.2 panic-buying-common
+工具类，异常，模型
+
+#### 3.3 panic-buying-core
+业务逻辑实现、缓存管理、队列管理、模型
+
+#### 3.4 panic-buying-dao
+数据库对接层，mapper文件，模型
+
 ---
 
 ## 4. 源码分析
