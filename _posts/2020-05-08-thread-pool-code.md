@@ -14,18 +14,19 @@ tags:
 ## 1. 线程池使用
 
 ```java
+// 1. 创建核心线程数为2，最大线程数为10的线程池
 ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 10, 60,TimeUnit.SECONDS, new LinkedBlockingDeque<>(50), new ThreadPoolExecutor.CallerRunsPolicy());
 executor.prestartAllCoreThreads();//启动所有核心线程,即创建空任务,激活线程并自旋
 Runnable runnable = () -> {
     //do something
     System.out.println("run");
 };
-// 提交并执行任务
+// 2. 提交并执行任务
 IntStream.range(0, 100).forEach(e -> {    
     executor.execute(runnable);
 });
 
-// 关闭线程池
+// 3. 关闭线程池
 if (!executor.isShutdown()) {
     executor.shutdown();
 }
