@@ -1,0 +1,120 @@
+2020-05-09 18:11:41,581 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2020-05-09 18:11:41,618 INFO o.a.j.JMeter: Loading user properties from: /Users/whvixd/Applications/softshare/tools/Jmeter/apache-jmeter-5.2.1/bin/user.properties
+2020-05-09 18:11:41,619 INFO o.a.j.JMeter: Loading system properties from: /Users/whvixd/Applications/softshare/tools/Jmeter/apache-jmeter-5.2.1/bin/system.properties
+2020-05-09 18:11:41,623 INFO o.a.j.JMeter: Copyright (c) 1998-2019 The Apache Software Foundation
+2020-05-09 18:11:41,624 INFO o.a.j.JMeter: Version 5.2.1
+2020-05-09 18:11:41,624 INFO o.a.j.JMeter: java.version=1.8.0_181
+2020-05-09 18:11:41,624 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2020-05-09 18:11:41,624 INFO o.a.j.JMeter: os.name=Mac OS X
+2020-05-09 18:11:41,625 INFO o.a.j.JMeter: os.arch=x86_64
+2020-05-09 18:11:41,625 INFO o.a.j.JMeter: os.version=10.14
+2020-05-09 18:11:41,625 INFO o.a.j.JMeter: file.encoding=UTF-8
+2020-05-09 18:11:41,625 INFO o.a.j.JMeter: java.awt.headless=null
+2020-05-09 18:11:41,625 INFO o.a.j.JMeter: Max memory     =1073741824
+2020-05-09 18:11:41,626 INFO o.a.j.JMeter: Available Processors =4
+2020-05-09 18:11:41,629 INFO o.a.j.JMeter: Default Locale=English (EN)
+2020-05-09 18:11:41,630 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2020-05-09 18:11:41,630 INFO o.a.j.JMeter: JMeterHome=/Users/whvixd/Applications/softshare/tools/Jmeter/apache-jmeter-5.2.1
+2020-05-09 18:11:41,630 INFO o.a.j.JMeter: user.dir  =/Users/whvixd/Documents/WsProjects/Workspace/qilixiang.github.io
+2020-05-09 18:11:41,630 INFO o.a.j.JMeter: PWD       =/Users/whvixd/Documents/WsProjects/Workspace/qilixiang.github.io
+2020-05-09 18:11:41,634 INFO o.a.j.JMeter: IP: 127.0.0.1 Name: wangzhixiangdeMacBook-Pro.local FullName: localhost
+2020-05-09 18:11:43,782 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
+2020-05-09 18:11:43,804 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
+2020-05-09 18:11:43,805 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
+2020-05-09 18:11:43,907 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2020-05-09 18:11:46,339 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-05-09 18:11:46,340 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-05-09 18:11:46,340 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-05-09 18:11:46,340 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2020-05-09 18:11:46,340 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2020-05-09 18:11:46,341 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2020-05-09 18:11:46,790 INFO o.a.j.e.KeyToolUtils: keytool found at 'keytool'
+2020-05-09 18:11:46,791 INFO o.a.j.p.h.p.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file /Users/whvixd/Applications/softshare/tools/Jmeter/apache-jmeter-5.2.1/bin/proxyserver.jks
+2020-05-09 18:11:46,983 INFO o.a.j.s.FileServer: Default base='/Users/whvixd/Documents/WsProjects/Workspace/qilixiang.github.io'
+2020-05-09 18:11:47,424 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2020-05-09 18:11:47,424 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2020-05-09 18:11:47,424 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2020-05-09 18:11:47,424 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2020-05-09 18:11:55,516 INFO o.a.j.g.a.Load: Loading file: /Users/whvixd/Applications/softshare/tools/Jmeter/apache-jmeter-5.2.1/Aggregate Report.jmx
+2020-05-09 18:11:55,518 INFO o.a.j.s.FileServer: Set new base='/Users/whvixd/Applications/softshare/tools/Jmeter/apache-jmeter-5.2.1'
+2020-05-09 18:11:55,690 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2020-05-09 18:11:55,701 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2020-05-09 18:11:55,703 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2020-05-09 18:11:55,707 INFO o.a.j.s.SaveService: Loading file: /Users/whvixd/Applications/softshare/tools/Jmeter/apache-jmeter-5.2.1/Aggregate Report.jmx
+2020-05-09 18:11:55,788 INFO o.a.j.s.FileServer: Set new base='/Users/whvixd/Applications/softshare/tools/Jmeter/apache-jmeter-5.2.1'
+2020-05-09 18:15:26,087 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2020-05-09 18:15:26,099 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2020-05-09 18:15:26,100 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2020-05-09 18:15:26,108 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2020-05-09 18:15:26,108 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2020-05-09 18:15:26,735 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2020-05-09 18:15:26,986 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2020-05-09 18:15:26,986 INFO o.a.j.e.StandardJMeterEngine: Starting 20 threads for group Thread Group.
+2020-05-09 18:15:26,986 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2020-05-09 18:15:26,987 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=20 ramp-up=1 delayedStart=false
+2020-05-09 18:15:26,994 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2020-05-09 18:15:27,023 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = wangzhixiangdeMacBook-Pro.local
+2020-05-09 18:15:27,024 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2020-05-09 18:15:27,024 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2020-05-09 18:15:27,033 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2020-05-09 18:15:27,043 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2020-05-09 18:15:27,095 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2020-05-09 18:15:27,139 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2020-05-09 18:15:27,194 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2020-05-09 18:15:27,244 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-6
+2020-05-09 18:15:27,294 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-7
+2020-05-09 18:15:27,338 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-8
+2020-05-09 18:15:27,388 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-9
+2020-05-09 18:15:27,439 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-10
+2020-05-09 18:15:27,495 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-11
+2020-05-09 18:15:27,539 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-12
+2020-05-09 18:15:27,590 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-13
+2020-05-09 18:15:27,640 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-14
+2020-05-09 18:15:27,692 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-15
+2020-05-09 18:15:27,738 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-16
+2020-05-09 18:15:27,790 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-17
+2020-05-09 18:15:27,842 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-18
+2020-05-09 18:15:27,890 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-19
+2020-05-09 18:15:27,939 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-20
+2020-05-09 18:15:44,008 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2020-05-09 18:15:44,010 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2020-05-09 18:15:44,103 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-6
+2020-05-09 18:15:44,103 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-6
+2020-05-09 18:15:44,203 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-8
+2020-05-09 18:15:44,203 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-8
+2020-05-09 18:15:44,305 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2020-05-09 18:15:44,305 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2020-05-09 18:15:44,405 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-4
+2020-05-09 18:15:44,405 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2020-05-09 18:15:44,606 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2020-05-09 18:15:44,606 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2020-05-09 18:15:44,706 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-5
+2020-05-09 18:15:44,706 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2020-05-09 18:15:44,807 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-7
+2020-05-09 18:15:44,808 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-7
+2020-05-09 18:15:44,906 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-9
+2020-05-09 18:15:44,906 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-9
+2020-05-09 18:15:45,202 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-10
+2020-05-09 18:15:45,203 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-10
+2020-05-09 18:15:45,507 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-11
+2020-05-09 18:15:45,507 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-11
+2020-05-09 18:15:45,810 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-12
+2020-05-09 18:15:45,810 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-12
+2020-05-09 18:15:46,002 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-13
+2020-05-09 18:15:46,002 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-13
+2020-05-09 18:15:46,109 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-14
+2020-05-09 18:15:46,109 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-14
+2020-05-09 18:15:46,206 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-15
+2020-05-09 18:15:46,206 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-15
+2020-05-09 18:15:46,305 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-16
+2020-05-09 18:15:46,306 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-16
+2020-05-09 18:15:46,411 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-17
+2020-05-09 18:15:46,411 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-17
+2020-05-09 18:15:46,506 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-18
+2020-05-09 18:15:46,506 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-18
+2020-05-09 18:15:46,607 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-19
+2020-05-09 18:15:46,607 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-19
+2020-05-09 18:15:46,708 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-20
+2020-05-09 18:15:46,708 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-20
+2020-05-09 18:15:46,709 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2020-05-09 18:15:46,710 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
