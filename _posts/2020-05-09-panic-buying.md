@@ -60,4 +60,4 @@ tags:
 #### 3.10 可拓展
 当更大的并发进入，导致服务负载瓶颈，最好将系统设计成弹性可拓展的，防止服务宕机。
 
-**秒杀系统源码分析**:[http://whvixd.com/2020/05/09/panic-buying-code/](http://whvixd.com/2020/05/09/panic-buying-code/)
+**秒杀系统源码分析**:[http://whvixd.com/2020/05/09/panic-buying-code/](http://whvixd.com/2020/05/10/panic-buying-code/)
