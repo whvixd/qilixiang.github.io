@@ -95,13 +95,13 @@ final void lock() {
 
 ```java
 public final void acquire(int arg) {
-    // 尝试获取锁资源，若获取成功，则返回true，则不会执行与后面的操作
+    // 1. 尝试获取锁资源，若获取成功，则返回true，则不会执行与后面的操作
     if (!tryAcquire(arg) // @see Sync$nonfairTryAcquire
     	&&
-        // 若失败，则addWaiter 新建节点到队列中
+        // 1.1 若失败，则addWaiter 新建节点到队列中
         // @see Sync$nonfairTryAcquire and AQS$addWaiter
         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
-        // 中断当前线程
+        // 1.2 中断当前线程
         selfInterrupt();
 }
 ```
@@ -130,7 +130,7 @@ final boolean nonfairTryAcquire(int acquires) {
         setState(nextc);
         return true;
     }
-    // 失败
+    // 5. 失败，返回false
     return false;
 }
 ```
@@ -314,6 +314,8 @@ private void unparkSuccessor(Node node) {
 }
 ```
 
+---
+
 #### 3.3.2 解锁
 
 **ReentrantLock$unlock**
@@ -363,4 +365,4 @@ protected final boolean tryRelease(int releases) {
     return free;
 }
 ```
-> 代码中涉及到双向链表的添加与删除操作，建议在阅读源码时在纸上画出流程，加强理解
+> 建议:原子锁的源码中涉及到双向链表的添加与删除操作，建议在阅读源码时在纸上画出流程，加强理解
