@@ -17,8 +17,12 @@ tags:
 
 不可中断的一个或一系列操作，所以jdk提供**ReentrantLock**，在多线程的情况下，让线程并行操作改为高效的串行操作。
 
+---
+
 ## 2. Why?
 为了防止在多线程的情况下，对字段修改操作时，其他线程无法获取准确的值。
+
+---
 
 ## 3. How?
 #### 3.1 测试
@@ -26,7 +30,7 @@ tags:
 > 首先测试在多线程中的自增操作是否真正的自增
 
 <html>
-    <img src="/img/reentrant-lock/code_demo.jpg" width="600" height="600" /> 
+    <img src="/img/reentrant-lock/code_demo.jpg" width="400" height="400" /> 
 </html>
 
 > 为了更清楚的看到效果，自增时线程堵塞10毫秒，发现在100个线程对同一个count自增时，线程执行无规律，最终没有达到预期的值(100);
@@ -34,7 +38,7 @@ tags:
 #### 3.2 原子锁的使用
 
 <html>
-    <img src="/img/reentrant-lock/code_lock_demo.jpg" width="600" height="600" /> 
+    <img src="/img/reentrant-lock/code_lock_demo.jpg" width="400" height="400" /> 
 </html>
 
 > 对自增代码块加锁后，线程执行有序，最终实现了在多线程的情况下的自增操作
@@ -48,7 +52,7 @@ ReentrantLock$lock -> ReentrantLock.Sync.NonfairSync$lock -> AQS$acquire -> AQS$
 
 > 原子锁的默认是非公平锁，大概过程就是利用AQS的CLH数据结构来存储CAS修改状态失败的线程，当获取锁资源的线程执行同步代码后，释放锁，会唤醒CLH中的线程，非公平锁与公平锁的不同点在源码中会讲到
 
-**ReentrantLock**
+**ReentrantLock构造器**
 ```java
 //新建原子锁
 private final ReentrantLock lock = new ReentrantLock();
@@ -70,13 +74,14 @@ private final ReentrantLock lock = new ReentrantLock();
 //非公平加锁逻辑
 final void lock() {
     // 与公平锁的不同之处如下:
-    // cas操作，将state值由 0 改为 1
+    // 1. cas操作，将state值由 0 改为 1
     if (compareAndSetState(0, 1))
-        // 修改state成功，则获取锁资源，并设置当前线程为独占模式，即AQS的获取锁资源的线程是本线程
+        // 1.1 修改state成功，则获取锁资源，并设置当前线程为独占模式，即AQS的获取锁资源的线程是本线程
         setExclusiveOwnerThread(Thread.currentThread());
+    // 2. 修改失败
     else
-        // 若cas操作失败，则再次获取锁资源
-        acquire(1);
+        // 2.1 若cas操作失败，则再次获取锁资源
+        acquire(1);//@See AQS$acquire
 }
 ```
 
@@ -85,8 +90,10 @@ final void lock() {
 ```java
 public final void acquire(int arg) {
     // 尝试获取锁资源，若获取成功，则返回true，则不会执行与后面的操作
-    if (!tryAcquire(arg) &&
+    if (!tryAcquire(arg) // @see Sync$nonfairTryAcquire
+    	&&
         // 若失败，则addWaiter 新建节点到队列中
+        // @see Sync$nonfairTryAcquire and AQS$addWaiter
         acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
         // 中断当前线程
         selfInterrupt();
@@ -146,6 +153,7 @@ private Node addWaiter(Node mode) {
         }
     }
     // 2. 将节点插入队列，必要时进行初始化
+    // @see AQS$enq
     enq(node);
     return node;
 }
@@ -205,6 +213,7 @@ final boolean acquireQueued(final Node node, int arg) {
     } finally {
         // 3. 若失败 取消正在进行的获取尝试，唤起<0的后置节点
         if (failed)
+        	// @see AQS$cancelAcquire
             cancelAcquire(node);
     }
 }
@@ -256,6 +265,7 @@ private void cancelAcquire(Node node) {
                     compareAndSetNext(pred, predNext, next);
             } else {
                 // 5.2 唤醒
+                // @see AQS$unparkSuccessor
                 unparkSuccessor(node);
             }
 
