@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      秒杀系统理论
+title:      秒杀系统
 subtitle:   panic-buying
 date:       2020-05-09
 author:     Static
