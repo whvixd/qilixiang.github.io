@@ -50,7 +50,7 @@ tags:
 
 ReentrantLock$lock -> ReentrantLock.Sync.NonfairSync$lock -> AQS$acquire -> AQS$tryAcquire && AQS$addWaiter && AQS$acquireQueued
 
-#### 3.3.1 原子锁的创建
+##### 3.3.1 原子锁的创建
 
 > 原子锁的默认是非公平锁，大概过程就是利用AQS的CLH数据结构来存储CAS修改状态失败的线程，当获取锁资源的线程执行同步代码后，释放锁，会唤醒CLH中的线程，非公平锁与公平锁的不同点在源码中会讲到
 
@@ -72,7 +72,7 @@ private final ReentrantLock lock = new ReentrantLock();
 
 ---
 
-#### 3.3.2 加锁
+##### 3.3.2 加锁
 
 **NonfairSync$lock**
 
@@ -316,7 +316,7 @@ private void unparkSuccessor(Node node) {
 
 ---
 
-#### 3.3.2 解锁
+##### 3.3.2 解锁
 
 **ReentrantLock$unlock**
 
