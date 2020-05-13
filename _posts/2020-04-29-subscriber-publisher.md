@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      subscriber-publisher
+title:      发布者-订阅者实践
 subtitle:   subscriber-publisher
 date:       2020-04-29
 author:     Static
