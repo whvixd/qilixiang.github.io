@@ -20,7 +20,7 @@ tags:
 ---
 
 ## 2. Why?
-为了防止在多线程的情况下，对字段修改操作时，其他线程无法获取准确的值。
+为了在多线程的情况下，每个线程做修改操作，按一定顺序执行，得到准确的字段值。
 
 ---
 
@@ -50,6 +50,8 @@ tags:
 
 ReentrantLock$lock -> ReentrantLock.Sync.NonfairSync$lock -> AQS$acquire -> AQS$tryAcquire && AQS$addWaiter && AQS$acquireQueued
 
+#### 3.3.1 原子锁的创建
+
 > 原子锁的默认是非公平锁，大概过程就是利用AQS的CLH数据结构来存储CAS修改状态失败的线程，当获取锁资源的线程执行同步代码后，释放锁，会唤醒CLH中的线程，非公平锁与公平锁的不同点在源码中会讲到
 
 **ReentrantLock构造器**
@@ -67,6 +69,10 @@ private final ReentrantLock lock = new ReentrantLock();
         sync = fair ? new FairSync() : new NonfairSync();
     }
 ```
+
+---
+
+#### 3.3.2 加锁
 
 **NonfairSync$lock**
 
@@ -183,7 +189,6 @@ private Node enq(final Node node) {
     }
 }
 ```
-
 
 **AQS$acquireQueued**
 
@@ -308,3 +313,54 @@ private void unparkSuccessor(Node node) {
         LockSupport.unpark(s.thread);
 }
 ```
+
+#### 3.3.2 解锁
+
+**ReentrantLock$unlock**
+
+> 释放锁资源，即state自减，唤醒CLH中等待的线程
+
+```java
+public void unlock() {
+	// sate减1操作
+    sync.release(1);
+}
+
+public final boolean release(int arg) {
+    // 1. 尝试释放锁
+    // @see Sync$tryRelease
+    if (tryRelease(arg)) {
+        Node h = head;
+        // 1.1 头节点不为空，且状态不为0时
+        if (h != null && h.waitStatus != 0)
+            // 唤起
+            // @see AQS$unparkSuccessor
+            unparkSuccessor(h);
+        return true;
+    }
+    return false;
+}
+```
+
+**Sync$tryRelease**
+
+```java
+protected final boolean tryRelease(int releases) {
+    // 1. state自减
+    int c = getState() - releases;
+    // 2. 若当前线程不是AQS中的独占线程，抛异常
+    if (Thread.currentThread() != getExclusiveOwnerThread())
+        throw new IllegalMonitorStateException();
+    boolean free = false;
+    // 3. c等于0时，即释放锁成功，注:可重入锁state>1，即需要再次释放
+    if (c == 0) {
+        free = true;
+        // 3.1 释放独占线程
+        setExclusiveOwnerThread(null);
+    }
+    // 4. 赋值state
+    setState(c);
+    return free;
+}
+```
+> 代码中涉及到双向链表的添加与删除操作，建议在阅读源码时在纸上画出流程，加强理解
