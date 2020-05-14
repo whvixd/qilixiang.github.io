@@ -52,7 +52,7 @@ ReentrantLock$lock -> ReentrantLock.Sync.NonfairSync$lock -> AQS$acquire -> AQS$
 
 ##### 3.3.1 原子锁的创建
 
-> 原子锁的默认是非公平锁，大概过程就是利用AQS的CLH数据结构来存储CAS修改状态失败的线程，当获取锁资源的线程执行同步代码后，释放锁，会唤醒CLH中的线程，非公平锁与公平锁的不同点在源码中会讲到
+> 原子锁的默认是非公平锁，大概过程就是利用AQS的CLH数据结构来存储CAS修改状态失败的线程，当获取锁资源的线程执行同步代码后，释放锁，会唤醒CLH中等待的线程，非公平锁与公平锁的不同点在源码中会讲到(@see NonfairSync$lock)
 
 **ReentrantLock构造器**
 ```java
@@ -74,12 +74,13 @@ private final ReentrantLock lock = new ReentrantLock();
 
 ##### 3.3.2 加锁
 
-**NonfairSync$lock**
+- **NonfairSync$lock**
+
+> 与公平锁的不同之处多了如下代码中的步骤1，即非公平锁让后进入的线程先cas修改state，修改成功获取锁，不会按照申请锁的顺序执行
 
 ```java
 //非公平加锁逻辑
 final void lock() {
-    // 与公平锁的不同之处如下:
     // 1. cas操作，将state值由 0 改为 1
     if (compareAndSetState(0, 1))
         // 1.1 修改state成功，则获取锁资源，并设置当前线程为独占模式，即AQS的获取锁资源的线程是本线程
@@ -91,11 +92,11 @@ final void lock() {
 }
 ```
 
-**AQS$acquire**
+- **AQS$acquire**
 
 ```java
 public final void acquire(int arg) {
-    // 1. 尝试获取锁资源，若获取成功，则返回true，则不会执行与后面的操作
+    // 1. 尝试获取锁资源，若获取成功，则返回true，则不会执行后面的操作
     if (!tryAcquire(arg) // @see Sync$nonfairTryAcquire
     	&&
         // 1.1 若失败，则addWaiter 新建节点到队列中
@@ -105,7 +106,7 @@ public final void acquire(int arg) {
         selfInterrupt();
 }
 ```
-**Sync$nonfairTryAcquire**
+- **Sync$nonfairTryAcquire**
 
 >tryAcquire最终调用nonfairTryAcquire
 
@@ -134,7 +135,15 @@ final boolean nonfairTryAcquire(int acquires) {
     return false;
 }
 ```
-**AQS$addWaiter**
+- **AQS$addWaiter**
+
+**添加尾节点过程**:
+a. O <-p n-> O(tail) 原队列
+b. O <-p n-> O(tail) <- O(new) 新建节点，并前置指向尾节点
+c. O <-p n-> O <-p O(tail,new) cas操作将新建的节点改为尾节点
+d. O <-p n-> O <-p n-> O(tail,new) 最后新建的节点(tail) 的后置指向 原尾节点
+
+> **O**:节点，**O(tail)**:尾节点，**O(new)**:新添加的节点，**O(tail,new)**:新节点设置为尾节点，**<-p n->** : 表示双向链表，p代表前置，n代表后置
 
 ```java
 private Node addWaiter(Node mode) {
@@ -147,12 +156,8 @@ private Node addWaiter(Node mode) {
         node.prev = pred;
         // 1.2 cas修改新建的节点为尾节点
         if (compareAndSetTail(pred, node)) {
-        	/* 添加尾节点过程:
-             a. O <-p n-> O(tail) 原队列
-             b. O <-p n-> O(tail) <- O(new) 新建节点，并前置指向尾节点
-             c. O <-p n-> O <-p O(tail,new) cas操作将新建的节点改为尾节点
-             d. O <-p n-> O <-p n-> O(tail,new) 最后新建的节点(tail) 的后置指向 原尾节点
-            */
+        	
+            
             // 设置原来的尾节点的下一节点为当前节点(现尾节点)
             pred.next = node;
             return node;
@@ -164,7 +169,7 @@ private Node addWaiter(Node mode) {
     return node;
 }
 ```
-**AQS$enq**
+- **AQS$enq**
 
 ```java
 private Node enq(final Node node) {
@@ -190,7 +195,7 @@ private Node enq(final Node node) {
 }
 ```
 
-**AQS$acquireQueued**
+- **AQS$acquireQueued**
 
 ```java
 final boolean acquireQueued(final Node node, int arg) {
@@ -224,7 +229,7 @@ final boolean acquireQueued(final Node node, int arg) {
 }
 ```
 
-**AQS$cancelAcquire**
+- **AQS$cancelAcquire**
 
 ```java
 private void cancelAcquire(Node node) {
@@ -279,7 +284,7 @@ private void cancelAcquire(Node node) {
     }
 ```
 
-**AQS$unparkSuccessor**
+- **AQS$unparkSuccessor**
 
 ```java
 private void unparkSuccessor(Node node) {
@@ -318,7 +323,7 @@ private void unparkSuccessor(Node node) {
 
 ##### 3.3.2 解锁
 
-**ReentrantLock$unlock**
+- **ReentrantLock$unlock**
 
 > 释放锁资源，即state自减，唤醒CLH中等待的线程
 
@@ -344,7 +349,7 @@ public final boolean release(int arg) {
 }
 ```
 
-**Sync$tryRelease**
+- **Sync$tryRelease**
 
 ```java
 protected final boolean tryRelease(int releases) {
