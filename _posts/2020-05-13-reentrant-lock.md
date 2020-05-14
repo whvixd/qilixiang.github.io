@@ -139,13 +139,12 @@ final boolean nonfairTryAcquire(int acquires) {
 
 **添加尾节点过程**:
 
-a. O <-p n-> O(tail) 原队列
-
-b. O <-p n-> O(tail) <- O(new) 新建节点，并前置指向尾节点
-
-c. O <-p n-> O <-p O(tail,new) cas操作将新建的节点改为尾节点
-
-d. O <-p n-> O <-p n-> O(tail,new) 最后新建的节点(tail) 的后置指向 原尾节点
+过程|说明
+---|---
+a. O <-p n-> O(tail)|原队列
+b. O <-p n-> O(tail) <- O(new)|新建节点，并前置指向尾节点
+c. O <-p n-> O <-p O(tail,new)|cas操作将新建的节点改为尾节点
+d. O <-p n-> O <-p n-> O(tail,new)|最后新建的节点(tail) 的后置指向 原尾节点
 
 > **O**:节点，**O(tail)**:尾节点，**O(new)**:新添加的节点，**O(tail,new)**:新节点设置为尾节点，**<-p n->** : 表示双向链表，p代表前置，n代表后置
 
