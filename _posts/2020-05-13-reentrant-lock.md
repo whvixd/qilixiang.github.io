@@ -13,9 +13,9 @@ tags:
 
 ## 1. What?
 #### 1.1 原子操作
-> 前提:Java语言最终也是也汇编的方式执行，所以从汇编的角度理解对变量的赋值操作过程:**读取 -> 更新 -> 写入**,在多线程下,赋值操作是不安全的。
+> 前提:Java语言最终也是也汇编的方式执行，所以从汇编的角度理解对变量的赋值操作过程:**读取 -> 更新 -> 写入**，在多线程下，赋值操作是不安全的。
 
-不可中断的一个或一系列操作，所以jdk提供**ReentrantLock**，在多线程的情况下，让线程并行操作改为高效的串行操作。
+原子操作是指“不可中断的一个或一系列操作”，所以jdk提供**ReentrantLock**，在多线程的情况下，让线程并行操作改为高效的串行操作。
 
 ---
 
@@ -33,7 +33,7 @@ tags:
     <img src="/img/reentrant-lock/code_demo.jpg" width="400" height="400" /> 
 </html>
 
-> 为了更清楚的看到效果，自增时线程堵塞10毫秒，发现在100个线程对同一个count自增时，线程执行无规律，最终没有达到预期的值(100);
+> 为了更清楚的看到效果，自增时线程堵塞10毫秒，发现在100个线程对同一个count自增时，线程执行无规律，最终没有达到预期的值100;
 
 #### 3.2 原子锁的使用
 
@@ -51,7 +51,6 @@ tags:
 ReentrantLock$lock -> ReentrantLock.Sync.NonfairSync$lock -> AQS$acquire -> AQS$tryAcquire && AQS$addWaiter && AQS$acquireQueued
 
 ##### 3.3.1 原子锁的创建
-
 > 原子锁的默认是非公平锁，大概过程就是利用AQS的CLH数据结构来存储CAS修改状态失败的线程，当获取锁资源的线程执行同步代码后，释放锁，会唤醒CLH中等待的线程，非公平锁与公平锁的不同点在源码中会讲到(@see NonfairSync$lock)
 
 **ReentrantLock构造器**
@@ -108,7 +107,7 @@ public final void acquire(int arg) {
 ```
 - **Sync$nonfairTryAcquire**
 
->tryAcquire最终调用nonfairTryAcquire
+> tryAcquire最终调用nonfairTryAcquire
 
 ```java
 final boolean nonfairTryAcquire(int acquires) {
