@@ -53,7 +53,7 @@ ReentrantLock$lock -> ReentrantLock.Sync.NonfairSync$lock -> AQS$acquire -> AQS$
 ##### 3.3.1 原子锁的创建
 > 原子锁的默认是非公平锁，大概过程就是利用AQS的CLH数据结构来存储CAS修改状态失败的线程，当获取锁资源的线程执行同步代码后，释放锁，会唤醒CLH中等待的线程，非公平锁与公平锁的不同点在源码中会讲到(@see NonfairSync$lock)
 
-**ReentrantLock构造器**
+- **ReentrantLock构造器**
 ```java
 //新建原子锁
 private final ReentrantLock lock = new ReentrantLock();
@@ -91,8 +91,9 @@ final void lock() {
 }
 ```
 
-- **AQS$acquire**
+---
 
+- **AQS$acquire**
 ```java
 public final void acquire(int arg) {
     // 1. 尝试获取锁资源，若获取成功，则返回true，则不会执行后面的操作
@@ -105,6 +106,8 @@ public final void acquire(int arg) {
         selfInterrupt();
 }
 ```
+---
+
 - **Sync$nonfairTryAcquire**
 
 > tryAcquire最终调用nonfairTryAcquire
@@ -134,6 +137,9 @@ final boolean nonfairTryAcquire(int acquires) {
     return false;
 }
 ```
+
+---
+
 - **AQS$addWaiter**
 
 **添加尾节点过程**:
@@ -169,8 +175,10 @@ private Node addWaiter(Node mode) {
     return node;
 }
 ```
-- **AQS$enq**
 
+---
+
+- **AQS$enq**
 ```java
 private Node enq(final Node node) {
     for (;;) {
@@ -195,8 +203,9 @@ private Node enq(final Node node) {
 }
 ```
 
-- **AQS$acquireQueued**
+---
 
+- **AQS$acquireQueued**
 ```java
 final boolean acquireQueued(final Node node, int arg) {
     boolean failed = true;
@@ -229,8 +238,9 @@ final boolean acquireQueued(final Node node, int arg) {
 }
 ```
 
-- **AQS$cancelAcquire**
+---
 
+- **AQS$cancelAcquire**
 ```java
 private void cancelAcquire(Node node) {
         // 1. Ignore if node doesn't exist
@@ -284,8 +294,9 @@ private void cancelAcquire(Node node) {
     }
 ```
 
-- **AQS$unparkSuccessor**
+---
 
+- **AQS$unparkSuccessor**
 ```java
 private void unparkSuccessor(Node node) {
     /*
@@ -349,8 +360,9 @@ public final boolean release(int arg) {
 }
 ```
 
-- **Sync$tryRelease**
+---
 
+- **Sync$tryRelease**
 ```java
 protected final boolean tryRelease(int releases) {
     // 1. state自减
