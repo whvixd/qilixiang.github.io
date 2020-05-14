@@ -138,9 +138,13 @@ final boolean nonfairTryAcquire(int acquires) {
 - **AQS$addWaiter**
 
 **添加尾节点过程**:
+
 a. O <-p n-> O(tail) 原队列
+
 b. O <-p n-> O(tail) <- O(new) 新建节点，并前置指向尾节点
+
 c. O <-p n-> O <-p O(tail,new) cas操作将新建的节点改为尾节点
+
 d. O <-p n-> O <-p n-> O(tail,new) 最后新建的节点(tail) 的后置指向 原尾节点
 
 > **O**:节点，**O(tail)**:尾节点，**O(new)**:新添加的节点，**O(tail,new)**:新节点设置为尾节点，**<-p n->** : 表示双向链表，p代表前置，n代表后置
@@ -156,8 +160,6 @@ private Node addWaiter(Node mode) {
         node.prev = pred;
         // 1.2 cas修改新建的节点为尾节点
         if (compareAndSetTail(pred, node)) {
-        	
-            
             // 设置原来的尾节点的下一节点为当前节点(现尾节点)
             pred.next = node;
             return node;
