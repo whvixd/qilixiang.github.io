@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      leetcode 64
+title:      leetcode interview 64
 subtitle:   求1+2+…+n
 date:       2020-06-02
 author:     Static

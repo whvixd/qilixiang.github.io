@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      leetcode 29
+title:      leetcode interview 29
 subtitle:   顺时针打印矩阵
 date:       2020-06-05
 author:     Static
@@ -69,7 +69,7 @@ public enum QInterview29 {
 
     public static void main(String[] args) {
         // assert [1, 2, 3, 6, 9, 8, 7, 4, 5]
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = new int[]{new int[]{1, 2, 3}, new int[]{4, 5, 6}, new int[]{7, 8, 9} };
         SystemUtil.print(QInterview29.instance.spiralOrder(matrix));
     }
 }
