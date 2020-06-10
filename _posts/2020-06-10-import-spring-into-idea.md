@@ -73,7 +73,7 @@ A. Keep an eye on https://youtrack.jetbrains.com/issue/IDEA-53476
 
 #### 2. 编译Spring项目，提示jar包不存在
 
-> 见3.1，执行运行 右侧gradle工具 spring-core -> Tasks -> other -> cglibRepackJar/objenesisRepackJar 两个命令
+> 见3.1，运行 右侧gradle工具 spring-core -> Tasks -> other -> cglibRepackJar/objenesisRepackJar 两个命令
 
 <html>
     <img src="/img/tool/import-spring-idea-q2.jpg" width="400" height="700" /> 
@@ -94,3 +94,5 @@ Error:(19, 49) java: 找不到符号
 > 见3.2，将`spring-aspects`模块剔除掉，再次编译通过
 
 #### 4. 开启Spring源码之旅
+
+> Ioc、AOP原理？请求调用到具体的业务代码是流程是什么样的？
