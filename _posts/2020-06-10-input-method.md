@@ -36,7 +36,5 @@ tags:
 > 平时多练习，可以听歌时，记记歌词
 
 <html>
-    <img src="/img/tool/binary-input-method.jpg" width="400" height="200" /> 
+    <img src="/img/tool/binary-input-method.jpg" width="600" height="400" /> 
 </html>
-
-```
