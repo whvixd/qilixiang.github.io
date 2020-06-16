@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - Java DynamicProxy 
+    - Java 基础
 ---
 
 ### 一. 代理模式

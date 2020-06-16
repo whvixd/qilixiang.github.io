@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - mq
+    - 运维
 ---
 
 > RocketMQ相关知识

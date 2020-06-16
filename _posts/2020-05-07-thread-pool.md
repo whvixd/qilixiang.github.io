@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - Java ThreadPoolExecutor
+    - Java 基础
     
 ---
 ## What?
