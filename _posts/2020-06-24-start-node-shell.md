@@ -17,12 +17,13 @@ tags:
 
 #### 1. 依赖 `nvm`
 
-> nvm和n都是node版本管理工具,
+> nvm和n都是node版本管理工具,这里用nvm来管理
 
-**nvm安装**
+**nvm两种安装方式**
 
 ```shell
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 ```
 
@@ -72,7 +73,7 @@ npm publish # 发布模块
 npm access # 在发布的包上设置访问级别
 ```
 
-> 依赖 yarn , 安装 `npm install -g yarn`
+> 依赖 `yarn` , 安装：`npm install -g yarn`
 
 ---
 
@@ -81,7 +82,7 @@ npm access # 在发布的包上设置访问级别
 ```bash
 #!/bin/bash
 
-# 进行项目
+# 进入项目路径
 cd /Users/xxx/Documents/workspace/webstorm/***
 
 #  yarn 淘宝镜像配置，若公司有自己镜像，修改为公司的镜像
@@ -103,7 +104,7 @@ then
 	nvm use v12.16.3
 fi
 
-# 依赖包的安装
+# 依赖包安装
 yarn install
 
 # 另启线程监测node是否启动，启动后打开首页
@@ -134,20 +135,20 @@ npm run dev
 
 ## 4. 命令启动
 
-1. 打开 `.bash_profile`
+#### 1. 打开 `.bash_profile`
 
 ```shell
 vi ~/.bash_profile
 ```
 
-2. 添加 `alias`
+#### 2. 添加 `alias`
 
 ```shell
-alias start_node='sh /Users/xxx/Documents/shell/start_node.sh'
+alias start_node='sh /Users/xxx/Documents/shell/start_node.sh' # 添加别名
 ```
 
-3. 终端输入 `start_node` 启动项目
+#### 3. 终端输入 `start_node` 启动项目
 
 ```shell
-start_node
+start_node # 启动项目
 ```
