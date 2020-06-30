@@ -23,9 +23,9 @@ tags:
 
 ## 分析
 
-#### 1. 利用栈的 `FIFO`
+#### 1. 利用栈的 `FILO` 特点
 
-> 详解看代码
+> 上代码
 
 ---
 
@@ -46,7 +46,7 @@ public enum QOffer09 {
         }
 
         public void appendTail(int value) {
-            // 若out不为空，则全部进in栈中，老的放栈低
+            // 若out不为空，则全部进in栈中，老的放栈底
             while (!outStack.empty()) {
                 inStack.push(outStack.pop());
             }
