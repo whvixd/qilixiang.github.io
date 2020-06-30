@@ -114,4 +114,4 @@ public enum QOffer09 {
 
 **Greed makes people stop at nothing. (Italy) Dante**
 
-> 贪欲使人无所不为-- \[意大利] 但丁
+> 贪欲使人无所不为  -- \[意大利] 但丁
