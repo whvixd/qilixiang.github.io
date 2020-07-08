@@ -38,7 +38,7 @@ public enum QInterview1611 {
         if(shorter == longer) return new int[]{shorter * k};
         int[] results = new int[k + 1];
         for (int i = 0; i <= k; i++) {
-            // 短的于长的组合
+            // 短的和长的组合
             results[i] = shorter * (k - i) + longer * i;
         }
         return results;
