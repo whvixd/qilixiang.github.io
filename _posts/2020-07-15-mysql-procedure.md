@@ -94,5 +94,8 @@ DELIMITER ;
 -- 执行程序
 CALL create_test_table(0, 10);
 ```
-
 > 修改程序，用 `ALTER`，删除程序用 `DROP`
+
+<html>
+    <img src="/img/mysql/MySQL-PROCEDURE.png" width="500" height="600" /> 
+</html>
