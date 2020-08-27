@@ -47,6 +47,7 @@ git push
 ```
 
 > 可在 ~/.bash_profile 中配置 alias 别名
+
 ```bash
 alias push='sh /Users/xxx/Documents/shell/git_push.sh'
 
@@ -65,7 +66,7 @@ $ push '提交代码'
 ```bash
 #!/usr/bin/env bash
 
-#--- run_c test.c  直接编译运行 ---#
+# --- run_c test.c  直接编译运行 --- #
 
 # 获取目录
 path=`pwd`
@@ -107,6 +108,7 @@ ${path}/../debug/${c_target}
 ```
 
 > ~/.bash_profile 中配置 alias 别名
+
 ```bash
 alias run_c='sh /Users/didi/Documents/shell/run_c.sh'
 
