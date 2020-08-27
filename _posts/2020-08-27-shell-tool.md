@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      shell tool
-subtitle:   一些shell工具
+subtitle:   shell工具
 date:       2020-08-27
 author:     Static
 header-img: 
