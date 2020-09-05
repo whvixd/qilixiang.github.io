@@ -55,7 +55,7 @@ alias push='sh /Users/xxx/Documents/shell/git_push.sh'
 $ push '提交代码'
 ```
 
-### 2. 一键执行c成语
+### 2. 一键执行c程序
 
 > mac 执行c程序，先编译，再执行
 
