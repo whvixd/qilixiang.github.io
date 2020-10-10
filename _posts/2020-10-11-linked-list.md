@@ -35,7 +35,7 @@ Java中LinkedList是双向链表,链表中的每个节点都包含了对前一�
 
 ## 2. How？
 
-> 双向链表:(head) <-pn-> (O) <-pn-> (O) <-pn-> (tail)  tip:head、tail是空值指针，在初始化时赋值。
+> 双向链表:(head) <-pn-> (O) <-pn-> (O) <-pn-> (tail)
 
 ### 1. Node Constructor
 
@@ -66,6 +66,8 @@ private static class Node<T>{
 ```
 
 ### 2. Constructor
+
+> head、tail是空值指针，在初始化时赋值。
 
 ```java
 public class LinkedList<T> implements Queue<T>,Cloneable,java.io.Serializable{
