@@ -2,7 +2,7 @@
 layout:     post
 title:      手写LinkedList
 subtitle:   数据结构
-date:       2020-10-10
+date:       2020-10-11
 author:     Static
 header-img: 
 catalog: true
