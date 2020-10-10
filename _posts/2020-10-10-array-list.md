@@ -28,7 +28,7 @@ Java中ArrayList是一种动态数组，对数组的封装。它的容量能动�
     <img src="/img/data-structure/ArrayListDiagram.png" width="500" height="500" /> 
 </html>
 
-> tip:ArrayList中的操作是线程非安全的，所以在多线程中使用 `CopyOnWriteArrayList` 或 `Collections.synchronizedList(new ArrayList<>());`
+> ArrayList中的操作是线程非安全的，所以在多线程中使用 `CopyOnWriteArrayList` 或 `Collections.synchronizedList(new ArrayList<>());`
 
 ---
 
