@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      手写ArrayList
-subtitle:   ArrayList
+subtitle:   数据结构
 date:       2020-10-10
 author:     Static
 header-img: 
@@ -20,7 +20,7 @@ tags:
 ## 1. What？
 
 ### 1. Definition
-ArrayList是一个数组，相当于动态数组。它的容量能动态增长。它继承于AbstractList，实现了List，RandomAccess，Cloneable，java.io.Serializable这些接口。
+Java中ArrayList是一种动态数组，对数组的封装。它的容量能动态增长。它继承于AbstractList，实现了List，RandomAccess，Cloneable，java.io.Serializable这些接口。
 
 ### 2. Diagram
 
@@ -28,13 +28,11 @@ ArrayList是一个数组，相当于动态数组。它的容量能动态增长�
     <img src="/img/data-structure/ArrayListDiagram.png" width="500" height="500" /> 
 </html>
 
-> tip:ArrayList中的操作是线程非安全的，所以在多线程中使用CopyOnWriteArrayList或 `Collections.synchronizedList(new ArrayList<>());`
+> tip:ArrayList中的操作是线程非安全的，所以在多线程中使用 `CopyOnWriteArrayList` 或 `Collections.synchronizedList(new ArrayList<>());`
 
 ---
 
 ## 2. How？
-
-> 具体实现及源码
 
 ### 1. Fields
 
@@ -61,7 +59,7 @@ ArrayList是一个数组，相当于动态数组。它的容量能动态增长�
     
 ```
 
-> 数组元素不使用泛型的原因，泛型在运行时会被擦除，这里需要在加载时赋值，所以用 `Object`，不用 `T`
+> 数组元素不使用泛型的原因：泛型在运行时会被擦除，这里需要在加载时赋值，所以用 `Object`，不用 `T`
 
 ### 2. Constructor
 
