@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - SpringMVC注解
+    - Spring
 ---
 
 ## SpringMvc项目中常用的注解

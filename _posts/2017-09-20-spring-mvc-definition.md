@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - SpringMVC
+    - Spring
 ---
 
 # 初步认识SpringMVC

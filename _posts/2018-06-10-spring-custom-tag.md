@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - Spring自定义标签
+    - Spring
 ---
 
 ### 如何用Spring去自定义标签
