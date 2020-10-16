@@ -50,7 +50,7 @@ tags:
 3, 接着选择权值最小的两个根，这时候我们选到了 `acd、b` ，构建成新的二叉树，新结点权值11+7=18，集合:`[acdb(18),e(12)]`
 
 <html>
-    <img src="/img/datastructure/huffmantree/huffman_4.png" width="400" height="400" /> 
+    <img src="/img/datastructure/huffmantree/huffman_4.png" width="600" height="600" /> 
 </html>
 
 4, 最后就剩两个根结点，构建成二叉树，这就是赫夫曼树，计算 `WPL=12\*1+7\*2+5*3+(2+4)*4=65`;
