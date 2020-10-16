@@ -51,7 +51,7 @@ tags:
 #### 4, 最后就剩两个根结点，构建成二叉树，这就是赫夫曼树，计算 WPL=12\*1+7\*2+5*3+(2+4)*4=65;
 
 <html>
-    <img src="/img/datastructure/huffmantree/huffman_5.png" width="400" height="400" /> 
+    <img src="/img/datastructure/huffmantree/huffman_5.png" width="600" height="600" /> 
 </html>
 
 ---
@@ -85,13 +85,13 @@ A | B | C | D | E
 #### 3，以字符重复的次数为权值，构造一颗赫夫曼树，如下
 
 <html>
-    <img src="/img/datastructure/huffmantree/huffman_6.png" width="400" height="400" /> 
+    <img src="/img/datastructure/huffmantree/huffman_6.png" width="600" height="600" /> 
 </html>
 
 #### 4，对上图中赫夫曼树每个结点的左右分支进行编号，左0右1，得到新的编码规则
 
 <html>
-    <img src="/img/datastructure/huffmantree/huffman_7.png" width="400" height="400" /> 
+    <img src="/img/datastructure/huffmantree/huffman_7.png" width="600" height="600" /> 
 </html>
 
 A | B | C | D | E
