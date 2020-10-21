@@ -71,7 +71,9 @@ A. Keep an eye on https://youtrack.jetbrains.com/issue/IDEA-53476
 
 > gradle版本号问题，直接用idea推荐的版本，gradle-2.5 ，我的idea是 2017.2，问题解决
 
-#### 2. 编译Spring项目，提示jar包不存在
+#### 2. 移除spring-aspects模块
+
+#### 3. 编译Spring项目，提示jar包不存在
 
 > 见3.1，运行 右侧gradle工具 spring-core -> Tasks -> other -> cglibRepackJar/objenesisRepackJar 两个命令
 
@@ -79,7 +81,7 @@ A. Keep an eye on https://youtrack.jetbrains.com/issue/IDEA-53476
     <img src="/img/tool/import-spring-idea-q2.jpg" width="400" height="700" /> 
 </html>
 
-#### 3. 再次编译Spring项目提示 `Error:(19, 49) java: 找不到符号`
+#### 4. 再次编译Spring项目提示 `Error:(19, 49) java: 找不到符号`
 
 ```
 Error:(19, 49) java: 找不到符号
@@ -93,6 +95,21 @@ Error:(19, 49) java: 找不到符号
 
 > 见3.2，将`spring-aspects`模块剔除掉，再次编译通过
 
-#### 4. 开启Spring源码之旅
+#### 5. 再次编译Spring项目提示
+
+<html>
+    <img src="/img/tool/impor_spring_20201021_1.png" width="500" height="500" /> 
+</html>
+
+> spring是aspectj切面编程
+
+**解决：**
+
+<html>
+    <img src="/img/tool/impor_spring_20201021_2.png" width="500" height="500" /> 
+</html>
+
+
+#### 6. 开启Spring源码之旅
 
 > Ioc、AOP原理？请求调用到具体的业务代码是流程是什么样的？
