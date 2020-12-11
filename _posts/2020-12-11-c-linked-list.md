@@ -222,3 +222,5 @@ find_index_node value:6
 length:0,(head) -> 
 
 ```
+
+> 代码地址：[传送门](https://github.com/whvixd/study/blob/master/c/database/LinkedList.c)
