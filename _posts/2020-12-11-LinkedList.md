@@ -19,7 +19,7 @@ tags:
 
 ## 1. 节点结构体 
 
-```C
+```cgo
 typedef struct NodeStruct{
     int value;
     struct NodeStruct *next;
@@ -44,7 +44,7 @@ typedef struct NodeStruct{
 
 ## 3. 代码
 
-```C
+```cgo
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -211,7 +211,7 @@ int main(){
 
 ## 4. 测试
 
-```
+```text
 ###delete_first_ele###
 length:5,(head) -> (6) -> (5) -> (4) -> (3) -> (2)
 length:4,(head) -> (6) -> (4) -> (3) -> (2)
