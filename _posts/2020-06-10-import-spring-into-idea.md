@@ -96,7 +96,7 @@ Error:(19, 49) java: 找不到符号
 #### 4. 再次编译Spring项目提示
 
 <html>
-    <img src="/img/tool/impor_spring_20201021_1.png" width="500" height="500" /> 
+    <img src="/img/tool/import_spring_20201021_1.png" width="500" height="500" /> 
 </html>
 
 > spring是aspectj切面编程
@@ -104,7 +104,7 @@ Error:(19, 49) java: 找不到符号
 **解决：**
 
 <html>
-    <img src="/img/tool/impor_spring_20201021_2.png" width="500" height="500" /> 
+    <img src="/img/tool/import_spring_20201021_2.png" width="500" height="500" /> 
 </html>
 
 
