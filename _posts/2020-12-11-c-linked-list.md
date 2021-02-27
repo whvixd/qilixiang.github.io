@@ -187,6 +187,7 @@ int print_list(){
 }
 
 int main(){
+    // 初始化
     init();
     insert_node(2);
     insert_node(3);
