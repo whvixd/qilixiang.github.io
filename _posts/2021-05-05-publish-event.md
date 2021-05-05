@@ -121,7 +121,7 @@ public class SomethingEventOneListener {
     }
 }
 ```
-> 可通过自定义状态机实现策略模式，线程池实现：[传送门](http://whvixd.com/2021/04/25/MDC/)
+> 可通过自定义状态机实现策略模式；线程池实现：[传送门](http://whvixd.com/2021/04/25/MDC/)
 
 5.测试
 
