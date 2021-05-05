@@ -79,7 +79,7 @@ public class EventService {
 
 4.添加事件监听器
 
-a.第一种实现接口方式
+a.实现接口方式
 
 ```java
 @Component
@@ -102,7 +102,7 @@ public class SomethingAsyncEventListener implements ApplicationListener<Somethin
 }
 ```
 
-b.第二种通过注解实现
+b.通过注解实现
 
 ```java
 @Component
