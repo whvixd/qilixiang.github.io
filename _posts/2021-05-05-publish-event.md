@@ -15,9 +15,13 @@ tags:
 
 Spring的`ApplicationEventPublisher`拥有事件发布并且注册事件监听器的能力，拥有一套完整的事件发布与监听机制，类似于Guava的EventBus。
 
+---
+
 ### 2. Why?
 
 事件处理机制，是设计模式中的观察者模式（生产/消费者编程模型）的优雅实现，高类聚低耦合，降低业务代码的耦合度，支持异步操作。
+
+---
 
 ### 3. How?
 
@@ -29,9 +33,11 @@ b. 事件发布者`ApplicationEventPublisher`;
 
 c. 事件监听器`ApplicationListener`或注解`@EventListener`
 
+---
+
 **步骤：**
 
-1. 创建自定义的事件模型
+1.创建自定义的事件模型
 
 ```java
 @Data
@@ -44,7 +50,7 @@ public class Something {
 }
 ```
 
-2. 自定义事件继承`ApplicationEvent`
+2.自定义事件继承`ApplicationEvent`
 
 ```java
 public class SomethingRegisterEvent extends ApplicationEvent{
@@ -54,7 +60,7 @@ public class SomethingRegisterEvent extends ApplicationEvent{
 }
 ```
 
-3. 创建事件发布者
+3.创建事件发布者
 
 ```java
 @Service
@@ -71,9 +77,9 @@ public class EventService {
 }
 ```
 
-4. 添加事件监听器
+4.添加事件监听器
 
-a. 第一种实现接口方式
+a.第一种实现接口方式
 
 ```java
 @Component
@@ -96,7 +102,7 @@ public class SomethingAsyncEventListener implements ApplicationListener<Somethin
 }
 ```
 
-b. 第二种通过注解实现
+b.第二种通过注解实现
 
 ```java
 @Component
@@ -117,7 +123,7 @@ public class SomethingEventOneListener {
 ```
 > 可通过自定义状态机实现策略模式，线程池实现：[传送门](http://whvixd.com/2021/04/25/MDC/)
 
-5. 测试
+5.测试
 
 ```java
 @SpringBootTest(classes = {SpringBootDemoApplication.class})
