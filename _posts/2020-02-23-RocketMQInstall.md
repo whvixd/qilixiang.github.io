@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - 运维
+    - 中间件
 ---
 
 > RocketMQ相关知识

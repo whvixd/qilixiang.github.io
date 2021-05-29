@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - Java 基础
+    - Java
 ---
 
 ### 一. 代理模式

@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - Java笔记
+    - 记录
 ---
 
 > 整理学习Java时记得笔记

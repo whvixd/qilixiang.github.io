@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - Java 工具
+    - Java
 ---
 
 ### 利用Apache的commons-email-1.4.jar实现发送邮件的功能

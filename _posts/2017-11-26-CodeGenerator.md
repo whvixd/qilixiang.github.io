@@ -7,7 +7,7 @@ author:     Static
 header-img: img/CodeGenerator/bg.png
 catalog: true
 tags:
-    - CodeGenerator
+    - 记录
 ---
 
 ### 总结下博主最近学的代码生成器

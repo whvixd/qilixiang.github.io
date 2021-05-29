@@ -7,7 +7,7 @@ author:     Static
 header-img: img/bg/black.jpg
 catalog: true
 tags:
-    - Java 源码阅读
+    - 源码阅读
     
 ---
 
