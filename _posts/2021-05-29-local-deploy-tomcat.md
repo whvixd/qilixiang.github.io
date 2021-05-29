@@ -11,7 +11,7 @@ tags:
     
 ---
 
-> 本次介绍如何在本地将tomcat导入idea中，并启动呢？
+> 本次介绍如何在本地将tomcat导入idea中，并启动起来。
 
 ## 1. 打开idea直接导入tomcat 
 
