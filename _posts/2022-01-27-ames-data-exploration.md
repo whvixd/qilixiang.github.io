@@ -11,10 +11,6 @@ tags:
     
 ---
 
-一些题外话：
-挺长时间没有更新博客了，去年下半年太忙了，一方面是工作的事，另一个方面是学校的事（花了两年时间考上某211非全研究生，计科专科），学校把大部分的课集中在研一上半学期，所以平时工作加班加点，周末时间上课，准备各种结课报告和考试，直到学校放假，才闲暇起来，不过，这半学期，认识了很多新同学和老师，都比较厉害，我也接触了人工智能相关的领域，后面我会根据自己平时所学和实践，整理到我的博客中。
-
-
 - [1 背景](#id1)
 - [2 数据获取](#id2)
 - [3 数据预处理](#id3)
@@ -22,7 +18,7 @@ tags:
     - [4.1](#id5)
     - [4.2](#id6)
     - [4.3](#id7)
-- [5 背景](#id8)
+- [5 总结](#id8)
 
 <span id="id1" style="font-size:25px;font-weight:bold">1 背景</span>
 
@@ -39,6 +35,7 @@ tags:
 </html>
 
 部分特征值如下表所示:
+
 Variable|Data Type|Comments
 ---|---|---
 LotArea|数值型|地皮面积
@@ -62,8 +59,11 @@ import numpy as np
 import pandas as pd
 
 # 读取训练集，1460个样本和80个特征和1个标签
+
 train_data = pd.read_csv('./train.csv')
+
 # 读取测试集，1459个样本和80个特征
+
 test_data = pd.read_csv('./test.csv')
 
 ```
@@ -188,6 +188,7 @@ def train(net, train_features, train_labels, test_features, test_labels,
 ```
 
 使用K折交叉验证来选择模型设计并调节超参数，定义第i折交叉验证时所需要的训练和验证数据函数:
+
 ```python
 def k_fold(k, X_train, y_train, num_epochs,
            learning_rate, weight_decay, batch_size):
@@ -263,7 +264,7 @@ def train_and_pred(train_features, test_features, train_labels, test_data,
     pred = net(test_features).detach().numpy()  # detach() 切断向前传播，requires_grad=false
     test_data['SalePrice'] = pd.Series(pred.reshape(1, -1)[0])
     pred = pd.concat([test_data["Id"], test_data['SalePrice']], axis=1)
-    # 预测结果保存带本地
+    # 预测结果保存带本地\n
     pred.to_csv('./pred.csv', index=False)
 ```
 
@@ -286,4 +287,11 @@ Id,SalePrice
 ```
 
 <span id="id8" style="font-size:25px;font-weight:bold">5 总结</span>
+
 国内经济水平不断提高，各个城市基础设施不断完善，近年来房价迅速增长。通过结合梯度下降算法的线性回归分析，建立一个房价的预测机制，以回归结果为依据，从而对房价有一个较为准确的预测，进而为个人和城市的发展提供角度和方法。在模型的实现中遇到了很多的困难，数据源的收集、数据缺失值处理、回归分析以及模型构建等，通过翻阅了大量的相关书籍以及技术博客完成这些工作。但是基于梯度下降算法的房价回归与预测模型仍然还有需要改进和完善的地方，如何构建一个精确度更高的模型和加快算法速度依旧是一个挑战，希望在后续的学习研究中能够利用神经网络相关的知识构建一个精确率较高、泛化能力较好的模型。
+
+---
+
+> 一些题外话：
+
+挺长时间没有更新博客了，去年下半年太忙了，一方面是工作的事，另一个方面是学校的事（花了两年时间考上某211非全研究生，计科专科），学校把大部分的课集中在研一上半学期，所以平时工作加班加点，周末时间上课，准备各种结课报告和考试，直到学校放假，才闲暇起来，不过，这半学期，认识了很多新同学和老师，都比较厉害，我也接触了人工智能相关的领域，后面我会根据自己平时所学和实践，整理到我的博客中。
