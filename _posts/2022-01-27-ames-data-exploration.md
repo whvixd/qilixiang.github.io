@@ -74,12 +74,14 @@ test_data = pd.read_csv('./test.csv')
 
 ```python
 # 第一列是id，不需要，训练集最后一个是标签
+
 all_features = pd.concat((train_data.iloc[:, 1:-1],test_data.iloc[:, 1:]))
 
 numeric_features = all_features.dtypes[all_features.dtypes != 'object'].index
 all_features[numeric_features] = all_features[numeric_features].apply(lambda x: (x - x.mean()) / (x.std()))
 
 # 标准化后，每个数值特征的均值变为0，所以可以直接用0来替换缺失值
+
 all_features[numeric_features] = all_features[numeric_features].fillna(0)
 ```
 
@@ -87,6 +89,7 @@ all_features[numeric_features] = all_features[numeric_features].fillna(0)
 
 ```python
 # dummy_na=True将缺失值也当作合法的特征值并为其创建指示特征
+
 all_features = pd.get_dummies(all_features, dummy_na=True)
 ```
 
@@ -114,20 +117,26 @@ train_labels = torch.tensor(train_data.SalePrice.values, dtype=torch.float).view
 <span id="id6" style="font-size:20px;font-weight:bold">4.3 训练过程</span>
 
 使用平方损失函数和三层全连接层来训练模型。
+
 ```python
 # 平方损失函数
+
 loss = torch.nn.MSELoss()
 
 def get_net(feature_num):
     num_inputs, num_outputs, num_hiddens_1, num_hiddens_2, drop_prob1, drop_prob2 = feature_num, 1, 256, 128, 0.4, 0.4
     # 定义模型
+
     net = nn.Sequential(
         FlattenLayer(),
         # 线性回归
+
         nn.Linear(num_inputs, num_hiddens_1),
         # 激活函数
+
         nn.ReLU(),
         # 丢弃法
+
         nn.Dropout(drop_prob1),
         nn.Linear(num_hiddens_1, num_hiddens_2),
         nn.ReLU(),
@@ -135,6 +144,7 @@ def get_net(feature_num):
         nn.Linear(num_hiddens_2, num_outputs),
     )
     # 初始化权重和偏差
+
     for p in net.parameters():
         nn.init.normal_(p, mean=0, std=0.01)
     return net
@@ -215,6 +225,7 @@ def k_fold(k, X_train, y_train, num_epochs,
 def semilogy(x_vals, y_vals, x_label, y_label, x2_vals=None, y2_vals=None,
              legend=None, figsize=(3.5, 2.5)):
     # 设置图的尺寸
+
     plt.rcParams['figure.figsize'] = figsize
     plt.xlabel(x_label)
     plt.ylabel(y_label)
@@ -264,7 +275,8 @@ def train_and_pred(train_features, test_features, train_labels, test_data,
     pred = net(test_features).detach().numpy()  # detach() 切断向前传播，requires_grad=false
     test_data['SalePrice'] = pd.Series(pred.reshape(1, -1)[0])
     pred = pd.concat([test_data["Id"], test_data['SalePrice']], axis=1)
-    # 预测结果保存带本地\n
+    # 预测结果保存带本地
+    
     pred.to_csv('./pred.csv', index=False)
 ```
 
