@@ -257,10 +257,10 @@ fold 5: train rmse 0.142367, valid rmse 0.194614
 5-fold validation: avg train rmse 0.144852, avg valid rmse 0.187517
 ```
 
-MSE:
+RMSE:
 
 <html>
-    <img src="/img/DL/predict.png" width="800" height="800" /> 
+    <img src="/img/DL/predict.png" width="600" height="600" /> 
 </html>
 
 定义训练和预测函数
@@ -276,7 +276,7 @@ def train_and_pred(train_features, test_features, train_labels, test_data,
     test_data['SalePrice'] = pd.Series(pred.reshape(1, -1)[0])
     pred = pd.concat([test_data["Id"], test_data['SalePrice']], axis=1)
     # 预测结果保存带本地
-    
+
     pred.to_csv('./pred.csv', index=False)
 ```
 
