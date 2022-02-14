@@ -19,13 +19,13 @@ tags:
     <img src="/img/tomcat/tomcat_classloader.png" width="500" height="300" /> 
 </html>
 
-- commonLoader：Tomcat最基本的类加载器，加载路径中的class可以被Tomcat容器本身以及各个Webapp访问，加载common/\*中的Java类库；
+- `commonLoader`：Tomcat最基本的类加载器，加载路径中的class可以被Tomcat容器本身以及各个Webapp访问，加载`/common/\*`中的Java类库；
 
-- catalinaLoader：Tomcat容器私有的类加载器，加载路径中的class对于Webapp不可见，加载/server/\*中的Java类库；
+- `catalinaLoader`：Tomcat容器私有的类加载器，加载路径中的class对于Webapp不可见，加载`/server/\*`中的Java类库；
 
-- sharedLoader：各个Webapp共享的类加载器，加载路径中的class对于所有Webapp可见，但是对于Tomcat容器不可见，加载/shared/\*中的Java类库；
+- `sharedLoader`：各个Webapp共享的类加载器，加载路径中的class对于所有Webapp可见，但是对于Tomcat容器不可见，加载`/shared/\*`中的Java类库；
 
-- WebappClassLoader：各个Webapp私有的类加载器，加载路径中的class只对当前Webapp可见，加载/WebApp/WEB-INF/\*中的Java类库；
+- `WebappClassLoader`：各个Webapp私有的类加载器，加载路径中的class只对当前Webapp可见，加载`/WebApp/WEB-INF/\*`中的Java类库；
 
 > CommonClassLoader、CatalinaClassLoader、SharedClassLoader加载的Java库类在Tomcat6之后已经合并到根目录下的lib目录下，见conf/catalina.properties配置文件
 
