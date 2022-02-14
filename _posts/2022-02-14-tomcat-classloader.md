@@ -1,19 +1,19 @@
 ---
 layout:     post
-title:      认识tomcat中的classloader
+title:      认识Tomcat中的类加载器
 subtitle:   
 date:       2022-02-03
 author:     Static
 header-img: 
 catalog: true
 tags:
-    - tomcat
+    - Tomcat
     
 ---
 
-> 本文中介绍的tomcat版本是8.5，代码注释：[https://github.com/whvixd/tomcat](https://github.com/whvixd/tomcat) 分支：8.5.x_local_deploy
+> 本文中介绍的Tomcat版本是8.5，代码注释：[https://github.com/whvixd/tomcat](https://github.com/whvixd/tomcat) 分支：8.5.x_local_deploy
 
-# 1. classloader设计图
+# 1. 类加载器设计图
 
 <html>
     <img src="/img/tomcat/tomcat_classloader.png" width="500" height="300" /> 
@@ -27,9 +27,9 @@ tags:
 
 - WebappClassLoader：各个Webapp私有的类加载器，加载路径中的class只对当前Webapp可见，加载/WebApp/WEB-INF/\*中的Java类库；
 
-> CommonClassLoader、CatalinaClassLoader、SharedClassLoader加载的Java库类在tomcat6之后已经合并到根目录下的lib目录下，见conf/catalina.properties配置文件
+> CommonClassLoader、CatalinaClassLoader、SharedClassLoader加载的Java库类在Tomcat6之后已经合并到根目录下的lib目录下，见conf/catalina.properties配置文件
 
-# 2. classloader初始化源码
+# 2. 类加载器初始化过程
 
 **CommonClassLoader、CatalinaClassLoader、SharedClassLoader 实例化过程：**
 
@@ -72,7 +72,7 @@ public void init() throws Exception {
 
     Thread.currentThread().setContextClassLoader(catalinaLoader);
 
-   // whvixd: 当SecurityManager不为空时，加载tomcat相关的类、javax
+   // whvixd: 当SecurityManager不为空时，加载Tomcat相关的类、javax
     SecurityClassLoad.securityClassLoad(catalinaLoader);
 
     // Load our startup class and call its process() method
@@ -163,7 +163,7 @@ private ClassLoader createClassLoader(String name, ClassLoader parent)
 }
 ```
 
-**WebAppClassLoader 实例化过程：**
+**WebAppClassLoader实例化过程：**
 
 链路：...-> StandardContext#startInternal -> StandardContext#setLoader -> WebappLoader#startInternal -> WebappLoader#createClassLoader -> WebappClassLoaderBase#start
 
@@ -310,9 +310,9 @@ public void start() throws LifecycleException {
 }
 ```
 
-> 所以说tomcat的WebAppClassLoader隔离性是通过每个StandardContext维护自己的类加载器，去加载自己应用下的`/WEB-INF/classes` 和 `WEB-INF/lib`中库类
+> 所以说Tomcat的WebAppClassLoader隔离性是通过每个StandardContext维护自己的类加载器，去加载自己应用下的`/WEB-INF/classes` 和 `WEB-INF/lib`中库类
 
-# 3. tomcat热部署逻辑
+# 3. Tomcat热部署过程
 
 链路：... -> StandardContext#startInternal -> ContainerBase#threadStart -> ContainerBackgroundProcessor#run -> ContainerBase#processChildren -> StandardContext#backgroundProcess -> WebappLoader#backgroundProcess -> StandardContext#reload
 
@@ -475,4 +475,4 @@ public synchronized void reload() {
 
 }
 ```
-> tomcat的热部署现实就是启动一个守护线程，轮训校验是否有class文件被修改，若有修改就停止后再启动，重新加载新的class
+> Tomcat的热部署现实就是启动一个守护线程，轮训校验是否有class文件被修改，若有修改就停止后再启动，重新加载新的class
