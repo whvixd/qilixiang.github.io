@@ -181,7 +181,7 @@ protected synchronized void startInternal() throws LifecycleException {
         webappLoader.setDelegate(getDelegate());
         setLoader(webappLoader);
     }
-    
+
 // ...
 }
 
@@ -278,7 +278,7 @@ public void start() throws LifecycleException {
 
 > 所以说Tomcat的WebAppClassLoader隔离性是通过每个StandardContext维护自己的类加载器，去加载自己应用下的`/WEB-INF/classes` 和 `WEB-INF/lib`中库类
 
-# 3. Tomcat热部署过程
+# 3. Tomcat的热部署过程
 
 链路：... -> StandardContext#startInternal -> ContainerBase#threadStart -> ContainerBackgroundProcessor#run -> ContainerBase#processChildren -> StandardContext#backgroundProcess -> WebappLoader#backgroundProcess -> StandardContext#reload
 
