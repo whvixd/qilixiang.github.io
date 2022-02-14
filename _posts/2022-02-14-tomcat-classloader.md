@@ -33,10 +33,10 @@ tags:
 
 **CommonClassLoader、CatalinaClassLoader、SharedClassLoader 实例化过程：**
 
-链路:Bootstrap#main -> Bootstrap#init -> Bootstrap#initClassLoaders -> Bootstrap#createClassLoader -> ClassLoaderFactory#createClassLoader -> URLClassLoader
+链路:Bootstrap#main -> Bootstrap#init -> Bootstrap#initClassLoaders -> Bootstrap#createClassLoader -> ClassLoaderFactory#createClassLoader -> URLClassLoader#new
 
 ```java
-// Bootstrap main函数
+// Bootstrap.java
 public static void main(String args[]) {
 
         synchronized (daemonLock) {
@@ -65,11 +65,7 @@ public static void main(String args[]) {
 }
 
 
-
-/**
- * Initialize daemon.
- * @throws Exception Fatal initialization error
- */
+// Bootstrap.java
 public void init() throws Exception {
 	// whvixd:初始化类加载器
     initClassLoaders();
@@ -103,7 +99,7 @@ public void init() throws Exception {
     catalinaDaemon = startupInstance;
 }
 
-
+// Bootstrap.java
 private void initClassLoaders() {
     try {
     	// whvixd:创建common类加载器
@@ -123,6 +119,7 @@ private void initClassLoaders() {
     }
 }
 
+// Bootstrap.java
 // whvixd:创建不同的类加载器，加载不同路径下jar
 private ClassLoader createClassLoader(String name, ClassLoader parent)
     throws Exception {
@@ -168,7 +165,7 @@ private ClassLoader createClassLoader(String name, ClassLoader parent)
 
 **WebAppClassLoader 实例化过程：**
 
-链路：...->StandardContext#startInternal -> StandardContext#setLoader -> WebappLoader#startInternal -> WebappLoader#createClassLoader -> WebappClassLoaderBase#start
+链路：...-> StandardContext#startInternal -> StandardContext#setLoader -> WebappLoader#startInternal -> WebappLoader#createClassLoader -> WebappClassLoaderBase#start
 
 
 ```java
@@ -283,7 +280,7 @@ private WebappClassLoaderBase createClassLoader()
     Class<?>[] argTypes = { ClassLoader.class };
     Object[] args = { parentClassLoader };
     Constructor<?> constr = clazz.getConstructor(argTypes);
-    // whvixd:实例化ParallelWebappClassLoader
+    // whvixd:实例化ParallelWebappClassLoader继承URLClassLoader
     classLoader = (WebappClassLoaderBase) constr.newInstance(args);
 
     return classLoader;
@@ -313,4 +310,169 @@ public void start() throws LifecycleException {
 }
 ```
 
-> 所以说tomcat的WebAppClassLoader隔离是通过每个StandardContext维护自己的类加载器，加载自己应用下的`/WEB-INF/classes` 和 `WEB-INF/lib`
+> 所以说tomcat的WebAppClassLoader隔离性是通过每个StandardContext维护自己的类加载器，去加载自己应用下的`/WEB-INF/classes` 和 `WEB-INF/lib`中库类
+
+# 3. tomcat热部署逻辑
+
+链路：... -> StandardContext#startInternal -> ContainerBase#threadStart -> ContainerBackgroundProcessor#run -> ContainerBase#processChildren -> StandardContext#backgroundProcess -> WebappLoader#backgroundProcess -> StandardContext#reload
+
+
+```java
+// StandardContext.java
+protected synchronized void startInternal() throws LifecycleException {
+// ...
+
+        // Start ContainerBackgroundProcessor thread
+// whvixd:========启动热部署线程，监控是否有class被修改 ========
+        super.threadStart();
+    } finally {
+        // Unbinding thread
+        unbindThread(oldCCL);
+    }
+// ...
+}
+
+// ContainerBase.java
+protected void threadStart() {
+
+    if (thread != null)
+        return;
+    if (backgroundProcessorDelay <= 0)
+        return;
+
+    threadDone = false;
+    String threadName = "ContainerBackgroundProcessor[" + toString() + "]";
+    // whvixd:热部署线程
+    thread = new Thread(new ContainerBackgroundProcessor(), threadName);
+    thread.setDaemon(true);
+    // whvixd:作为守护线程启动
+    thread.start();
+
+}
+
+// ContainerBackgroundProcessor继承Runnable
+@Override
+public void run() {
+    Throwable t = null;
+    String unexpectedDeathMessage = sm.getString(
+            "containerBase.backgroundProcess.unexpectedThreadDeath",
+            Thread.currentThread().getName());
+    try {
+        while (!threadDone) {
+            try {
+                Thread.sleep(backgroundProcessorDelay * 1000L);
+            } catch (InterruptedException e) {
+                // Ignore
+            }
+            if (!threadDone) {
+            	// whvixd:处理事件
+                processChildren(ContainerBase.this);
+            }
+        }
+    } catch (RuntimeException|Error e) {
+        t = e;
+        throw e;
+    } finally {
+        if (!threadDone) {
+            log.error(unexpectedDeathMessage, t);
+        }
+    }
+}
+
+// ContainerBase.java
+protected void processChildren(Container container) {
+    ClassLoader originalClassLoader = null;
+
+    try {
+        if (container instanceof Context) {
+            Loader loader = ((Context) container).getLoader();
+            // Loader will be null for FailedContext instances
+            if (loader == null) {
+                return;
+            }
+
+            // Ensure background processing for Contexts and Wrappers
+            // is performed under the web app's class loader
+            originalClassLoader = ((Context) container).bind(false, null);
+        }
+        // whvixd:热部署
+        container.backgroundProcess();
+        Container[] children = container.findChildren();
+        for (Container child : children) {
+            if (child.getBackgroundProcessorDelay() <= 0) {
+                processChildren(child);
+            }
+        }
+    } catch (Throwable t) {
+        ExceptionUtils.handleThrowable(t);
+        log.error("Exception invoking periodic operation: ", t);
+    } finally {
+        if (container instanceof Context) {
+            ((Context) container).unbind(false, originalClassLoader);
+       }
+    }
+}
+}
+
+// WebappLoader.java
+public void backgroundProcess() {
+    // whvixd:判断class是否有被修改
+    if (reloadable && modified()) {
+        try {
+            Thread.currentThread().setContextClassLoader
+                (WebappLoader.class.getClassLoader());
+            if (context != null) {
+            	// whvixd:重新部署
+                context.reload();
+            }
+        } finally {
+            if (context != null && context.getLoader() != null) {
+                Thread.currentThread().setContextClassLoader
+                    (context.getLoader().getClassLoader());
+            }
+        }
+    }
+}
+
+// StandardContext.java
+public synchronized void reload() {
+
+    // whvixd:启动一个守护线程，轮训校验是否有class文件被修改，若有修改就停止后再启动，重新加载新的class
+
+    // Validate our current component state
+    if (!getState().isAvailable())
+        throw new IllegalStateException
+            (sm.getString("standardContext.notStarted", getName()));
+
+    if(log.isInfoEnabled())
+        log.info(sm.getString("standardContext.reloadingStarted",
+                getName()));
+
+    // Stop accepting requests temporarily.
+    setPaused(true);
+
+    try {
+        // whvixd:发送停止事件
+        stop();
+    } catch (LifecycleException e) {
+        log.error(
+            sm.getString("standardContext.stoppingContext", getName()), e);
+    }
+
+    try {
+        // whvixd:发送启动事件，重新加载class
+        start();
+    } catch (LifecycleException e) {
+        log.error(
+            sm.getString("standardContext.startingContext", getName()), e);
+    }
+
+    setPaused(false);
+
+    if(log.isInfoEnabled())
+        log.info(sm.getString("standardContext.reloadingCompleted",
+                getName()));
+
+}
+```
+> tomcat的热部署现实就是启动一个守护线程，轮训校验是否有class文件被修改，若有修改就停止后再启动，重新加载新的class
