@@ -11,7 +11,7 @@ tags:
     
 ---
 
-> 本文中介绍的tomcat版本是8.5
+> 本文中介绍的tomcat版本是8.5，代码注释：[https://github.com/whvixd/tomcat](https://github.com/whvixd/tomcat) 分支：8.5.x_local_deploy
 
 # 1. classloader设计图
 
