@@ -312,3 +312,5 @@ public void start() throws LifecycleException {
     state = LifecycleState.STARTED;
 }
 ```
+
+> 所以说tomcat的WebAppClassLoader隔离是通过每个StandardContext维护自己的类加载器，加载自己应用下的`/WEB-INF/classes` 和 `WEB-INF/lib`
