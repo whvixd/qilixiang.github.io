@@ -67,12 +67,13 @@ public static void main(String args[]) {
 
 // Bootstrap.java
 public void init() throws Exception {
+
 	// whvixd:初始化类加载器
     initClassLoaders();
 
     Thread.currentThread().setContextClassLoader(catalinaLoader);
 
-   // whvixd: 当SecurityManager不为空时，加载Tomcat相关的类、javax
+    // whvixd: 当SecurityManager不为空时，加载Tomcat相关的类、javax
     SecurityClassLoad.securityClassLoad(catalinaLoader);
 
     // Load our startup class and call its process() method
@@ -172,43 +173,7 @@ private ClassLoader createClassLoader(String name, ClassLoader parent)
 // StandardContext.java
 protected synchronized void startInternal() throws LifecycleException {
 
-    if(log.isDebugEnabled())
-        log.debug("Starting " + getBaseName());
-
-    // Send j2ee.state.starting notification
-    if (this.getObjectName() != null) {
-        Notification notification = new Notification("j2ee.state.starting",
-                this.getObjectName(), sequenceNumber.getAndIncrement());
-        broadcaster.sendNotification(notification);
-    }
-
-    setConfigured(false);
-    boolean ok = true;
-
-    // Currently this is effectively a NO-OP but needs to be called to
-    // ensure the NamingResources follows the correct lifecycle
-    if (namingResources != null) {
-        namingResources.start();
-    }
-
-    // Post work directory
-    postWorkDirectory();
-
-    // Add missing components as necessary
-    if (getResources() == null) {   // (1) Required by Loader
-        if (log.isDebugEnabled())
-            log.debug("Configuring default Resources");
-
-        try {
-            setResources(new StandardRoot(this));
-        } catch (IllegalArgumentException e) {
-            log.error(sm.getString("standardContext.resourcesInit"), e);
-            ok = false;
-        }
-    }
-    if (ok) {
-        resourcesStart();
-    }
+// ...
 
     if (getLoader() == null) {
         // whvixd:创建WebAppClassLoader，每个StandardContext都会拥有自己的类加载器，这也就是每个应用隔离的原因
@@ -216,6 +181,7 @@ protected synchronized void startInternal() throws LifecycleException {
         webappLoader.setDelegate(getDelegate());
         setLoader(webappLoader);
     }
+    
 // ...
 }
 
