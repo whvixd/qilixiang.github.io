@@ -50,7 +50,7 @@ restful-client是一款基于okhttp开发的restful风格的http客户端项目�
 
 # 三、构建restful-client的SpringBoot版本
 
-> 下面简单介绍下构建starter项目的流程
+> 下面简单介绍下构建restful-client的starter项目的流程和使用
 
 ## 1. 初始化SpringBoot的脚手架项目
 
