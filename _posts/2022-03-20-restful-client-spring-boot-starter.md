@@ -24,25 +24,26 @@ spring-boot-starter让我们摆脱了各种依赖库的处理和各种信息的�
 
 ## 3. 常用的spring-boot-starter项目
 
-1. spring-boot-starter-logging、spring-boot-starter-log4j、spring-boot-starter-log4j2，可快速集成和配置应用的日志。
+1. spring-boot-starter-logging、spring-boot-starter-log4j、spring-boot-starter-log4j2，可快速集成和配置项目中的日志。
 
 2. spring-boot-starter-web，可快速使用SpringMVC开发web应用，简化并开发一个Web项目，如果不想使用嵌入式的tomcat，那么可以引用spring-boot-starter-jetty或spring-boot-starter-undertow作为Web容器。
 
-3. spring-boot-starter-jdbc，自动配置数据访问的基础设施，也可以使用mybatis-spring-boot-starter作为数据访问，还有像mybatis-plus-boot-starter、dynamic-datasource-spring-boot-starter之类的项目。
+3. spring-boot-starter-jdbc，自动配置数据访问的基础设施，也可以使用mybatis-spring-boot-starter作为数据访问，还有像mybatis-plus-boot-starter、dynamic-datasource-spring-boot-starter之类的数据访问项目。
 
-4. spring-boot-starter-aop，提供代码生成、动态代理、字节码增强等工具。
+4. spring-boot-starter-aop，提供代码生成、动态代理、字节码增强等功能。
 
 5. spring-boot-starter-actuator，提供应用的监控功能。
 
 # 二、restful-client简介
 
-> 之前写过一篇介绍restful-client的文章，[传送门](http://whvixd.com/2020/03/27/restful-client/)，这里就不做过多赘述。
+> 之前写过一篇介绍restful-client的文章（[传送门](http://whvixd.com/2020/03/27/restful-client/)），这里就不做过多赘述了。
 
-1. 什么是restful-client
+**1. 什么是restful-client**
 
-restful-client是一款基于okhttp开发的restful风格的http客户端项目，其原理是利用动态代理便携式注解可快速编写http协议的客户端接口，相当于简化版的[retrofit](https://square.github.io/retrofit/)。
+restful-client是一款基于okhttp开发的restful风格的http客户端项目，其原理是利用动态代理开发便携式注解可快速开发http协议的客户端接口，相当于简化版的[retrofit](https://square.github.io/retrofit/)。
 
-2. 如何使用restful-client
+
+**2. 如何使用restful-client**
 
 定义客户端接口，添加`@RequestMapping(path = "127.0.0.1:8080")`注解，再添加相关的get、post请求的方法，并添加`@RequestGet(path = "/hello/get")`之类的注解。
 
@@ -126,12 +127,13 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.github.whvixd.restful.client.spring.boot.autoconfigure.RestfulClientAutoConfiguration
 ```
 
-> 如何识别spring.factories中的配置类，可见spring源码中的`SpringFactoriesLoader#loadFactoryNames`方法，如何实例化配置类见`SpringApplication#createSpringFactoriesInstances`
+如何识别spring.factories中的配置类？如何实例化配置类？
+见spring源码中的`SpringFactoriesLoader#loadFactoryNames`方法和`SpringApplication#createSpringFactoriesInstances`
 
 
-## 5. 添加`RestfulClientFactoryBean`
+## 5. 添加RestfulClientFactoryBean
 
-> `RestfulClientFactoryBean` 是实现 Spring的`FactoryBean`，目的是对客户端接口的方法进行动态代理
+RestfulClientFactoryBean 是实现 Spring的FactoryBean，目的是对客户端接口进行动态代理
 
 ```java
 public class RestfulClientFactoryBean<T> implements FactoryBean<T> {
@@ -162,9 +164,9 @@ public class RestfulClientFactoryBean<T> implements FactoryBean<T> {
 }
 ```
 
-## 6. 利用`@RestfulClientScan`注解识别客户端接口
+## 6. 利用@RestfulClientScan注解识别客户端接口
 
-> `@RestfulClientScan`需要在项目的SpringBoot启动类或配置类上标识restful-client的包路径
+@RestfulClientScan需要在项目的SpringBoot启动类或配置类上标识restful-client的包路径，如下：
 
 ```java
 @Configuration
@@ -174,7 +176,7 @@ static class RestfulClientScanConfiguration {
 }
 ```
 
-`@RestfulClientScan`的原理见`ClassPathRestfulClientScanner`、`RestfulClientScannerConfigurer`和`RestfulClientScannerRegister`
+@RestfulClientScan的实现原理见`ClassPathRestfulClientScanner`、`RestfulClientScannerConfigurer`和`RestfulClientScannerRegister`
 
 ## 7. 如何使用restful-client的starter
 
@@ -187,6 +189,8 @@ static class RestfulClientScanConfiguration {
 ```bash
 mvn install:install-file -DgroupId=com.github.whvixd -DartifactId=restful-client-spring-boot-starter -Dversion=1.0.0 -Dpackaging=jar -Dfile=/Users/xxx/Downloads/restful-client-spring-boot-starter-1.0.0.jar
 ```
+
+> 注意包路径，改成自己本地的路径
 
 ### 3. 本地spring-boot项目添加mvn依赖
 
@@ -210,7 +214,7 @@ public class RestfulClientApplication {
 }
 ```
 
-### 5. 添加`client`模块
+### 5. 添加`client`接口
 
 ```java
 @RequestMapping(path = "192.168.22.22:8888",message = "helloClient")
@@ -251,4 +255,4 @@ public class HelloService{
 
 > 可参考测试代码：[RestfulClientAutoConfigurationTest](https://github.com/whvixd/restful-client-spring-boot-starter/blob/master/src/test/java/com/github/whvixd/restful/client/spring/boot/autoconfigure/RestfulClientAutoConfigurationTest.java)
 
-> restful-client-spring-boot-starter的源码链接：[https://github.com/whvixd/restful-client-spring-boot-starter](https://github.com/whvixd/restful-client-spring-boot-starter)
+> 源码链接：[https://github.com/whvixd/restful-client-spring-boot-starter](https://github.com/whvixd/restful-client-spring-boot-starter)
