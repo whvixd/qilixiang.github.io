@@ -128,7 +128,8 @@ com.github.whvixd.restful.client.spring.boot.autoconfigure.RestfulClientAutoConf
 ```
 
 如何识别spring.factories中的配置类？如何实例化配置类？
-见spring源码中的`SpringFactoriesLoader#loadFactoryNames`方法和`SpringApplication#createSpringFactoriesInstances`
+
+见spring源码中的`SpringFactoriesLoader#loadFactoryNames`和`SpringApplication#createSpringFactoriesInstances`方法
 
 
 ## 5. 添加RestfulClientFactoryBean
